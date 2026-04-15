@@ -1,0 +1,3673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Divya Aroha — Sacred Offerings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory:       #FAF3E6;
+    --parchment:   #F0E4CC;
+    --umber:       #1C0F07;
+    --umber-mid:   #2E1A0E;
+    --umber-light: #3D2210;
+    --gold:        #C9A84C;
+    --gold-light:  #E8D5A3;
+    --gold-dark:   #A07830;
+    --saffron:     #B85C1A;
+    --saffron-lt:  #D4803A;
+    --sandalwood:  #2C1810;
+    --cream:       #E8D5A3;
+    --smoke:       rgba(201,168,76,0.08);
+    --shadow-gold: 0 8px 40px rgba(201,168,76,0.18);
+    --transition:  700ms cubic-bezier(0.16,1,0.3,1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    background: var(--umber);
+    color: var(--ivory);
+    font-family: 'EB Garamond', Georgia, serif;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--umber); }
+  ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 3px; }
+
+  /* ── MANDALA WATERMARK ── */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 80vmin; height: 80vmin;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cg fill='none' stroke='%23C9A84C' stroke-width='0.6' opacity='0.12'%3E%3Ccircle cx='200' cy='200' r='190'/%3E%3Ccircle cx='200' cy='200' r='160'/%3E%3Ccircle cx='200' cy='200' r='130'/%3E%3Ccircle cx='200' cy='200' r='100'/%3E%3Ccircle cx='200' cy='200' r='70'/%3E%3Ccircle cx='200' cy='200' r='40'/%3E%3Ccircle cx='200' cy='200' r='15'/%3E%3Cline x1='200' y1='10' x2='200' y2='390'/%3E%3Cline x1='10' y1='200' x2='390' y2='200'/%3E%3Cline x1='55' y1='55' x2='345' y2='345'/%3E%3Cline x1='345' y1='55' x2='55' y2='345'/%3E%3Cline x1='128' y1='10' x2='272' y2='390'/%3E%3Cline x1='272' y1='10' x2='128' y2='390'/%3E%3Cline x1='10' y1='128' x2='390' y2='272'/%3E%3Cline x1='10' y1='272' x2='390' y2='128'/%3E%3Cpolygon points='200,30 220,180 390,200 220,220 200,370 180,220 10,200 180,180'/%3E%3Cpolygon points='200,70 215,170 310,130 250,215 310,270 215,230 200,330 185,230 90,270 150,215 90,130 185,170'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+    z-index: 0;
+    animation: mandala-spin 120s linear infinite;
+  }
+
+  @keyframes mandala-spin {
+    from { transform: translate(-50%,-50%) rotate(0deg); }
+    to   { transform: translate(-50%,-50%) rotate(360deg); }
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: linear-gradient(to bottom, rgba(28,15,7,0.97) 0%, rgba(28,15,7,0) 100%);
+    transition: background var(--transition);
+  }
+  nav.scrolled {
+    background: rgba(28,15,7,0.97);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    backdrop-filter: blur(12px);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-decoration: none;
+    display: flex; flex-direction: column; align-items: flex-start; line-height: 1;
+  }
+  .nav-logo span {
+    font-size: 0.55rem;
+    letter-spacing: 0.35em;
+    font-family: 'Cinzel', serif;
+    color: var(--cream);
+    opacity: 0.7;
+    margin-top: 3px;
+    text-transform: uppercase;
+  }
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+  }
+  .nav-links a {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.3s, color 0.3s;
+  }
+  .nav-links a:hover { opacity: 1; color: var(--gold); }
+
+  .nav-actions { display: flex; align-items: center; gap: 1.5rem; }
+  .nav-cart {
+    display: flex; align-items: center; gap: 0.5rem;
+    background: none; border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold); padding: 0.5rem 1.2rem;
+    font-family: 'Cinzel', serif; font-size: 0.6rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.4s;
+    position: relative;
+  }
+  .nav-cart:hover { background: rgba(201,168,76,0.1); border-color: var(--gold); }
+  .cart-count {
+    position: absolute; top: -6px; right: -6px;
+    background: var(--saffron); color: white;
+    width: 18px; height: 18px; border-radius: 50%;
+    font-size: 0.6rem; display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif;
+  }
+
+  /* ── HERO ── */
+  #hero {
+    position: relative;
+    height: 100vh; min-height: 700px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: visible;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, #3D2210 0%, #1C0F07 55%, #0E0704 100%);
+    z-index: 1;
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.3;
+  }
+
+  /* Incense smoke particles */
+  .smoke-container {
+    position: absolute; bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 300px; height: 500px;
+    z-index: 2; pointer-events: none;
+  }
+  .smoke-particle {
+    position: absolute;
+    bottom: 0; left: 50%;
+    width: 3px; border-radius: 50%;
+    background: rgba(232,213,163,0.15);
+    animation: smoke-rise 6s ease-in infinite;
+    transform-origin: bottom center;
+  }
+  .smoke-particle:nth-child(1)  { left: 46%; animation-delay: 0s;   width:2px; height:80px; }
+  .smoke-particle:nth-child(2)  { left: 50%; animation-delay: 1.2s; width:3px; height:100px; }
+  .smoke-particle:nth-child(3)  { left: 54%; animation-delay: 2.4s; width:2px; height:70px; }
+  .smoke-particle:nth-child(4)  { left: 48%; animation-delay: 3.6s; width:4px; height:90px; }
+  .smoke-particle:nth-child(5)  { left: 52%; animation-delay: 0.8s; width:2px; height:110px; }
+
+  @keyframes smoke-rise {
+    0%   { opacity: 0; transform: translateX(0) scaleX(1) translateY(0); }
+    20%  { opacity: 0.6; }
+    80%  { opacity: 0.2; }
+    100% { opacity: 0; transform: translateX(30px) scaleX(3) translateY(-400px); }
+  }
+
+.hero-content {
+  position: relative !important;
+  z-index: 100 !important;
+  opacity: 1 !important;
+  pointer-events: all !important;
+}
+
+.hero-eyebrow { position: relative !important; z-index: 9999 !important; }
+.hero-eyebrow {
+  opacity: 0;
+  animation: fade-up 1.2s var(--transition) 0.3s forwards !important;
+  z-index: 100 !important;
+  position: relative !important;
+}
+
+.hero-title {
+  opacity: 0;
+  animation: fade-up 1.4s var(--transition) 0.6s forwards,
+             shimmer-slide 5.5s linear 2.2s infinite !important;
+  z-index: 100 !important;
+  position: relative !important;
+}
+
+.hero-subtitle {
+  opacity: 0;
+  animation: fade-up 1.4s var(--transition) 0.9s forwards !important;
+  z-index: 100 !important;
+  position: relative !important;
+}
+
+.hero-pills {
+  opacity: 0;
+  animation: fade-up 1.2s var(--transition) 1.0s forwards !important;
+  z-index: 100 !important;
+  position: relative !important;
+}
+
+.hero-tagline-strip {
+  opacity: 0;
+  animation: fade-up 1.2s var(--transition) 1.3s forwards !important;
+  z-index: 100 !important;
+  position: relative !important;
+}
+
+.hero-cta-group {
+  opacity: 0;
+  animation: fade-up 1.2s var(--transition) 1.5s forwards !important;
+  z-index: 100 !important;
+  position: relative !important;
+}
+
+/* Lock ALL animation layers strictly below content */
+.hero-bg        { z-index: 1 !important; }
+.hero-rays      { z-index: 2 !important; }
+.hero-mandala   { z-index: 2 !important; }
+#hero-canvas    { z-index: 2 !important; }
+.hero-aura      { z-index: 2 !important; }
+.hero-petals    { z-index: 2 !important; }
+.smoke-container{ z-index: 2 !important; }
+.grain-overlay  { z-index: 3 !important; pointer-events: none !important; }
+.hero-frame     { z-index: 3 !important; pointer-events: none !important; }
+.hero-om        { z-index: 4 !important; }
+.hero-diya      { z-index: 4 !important; }
+.scroll-hint    { z-index: 10 !important; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+    color: var(--umber);
+    padding: 0.85rem 2.5rem;
+    font-family: 'Cinzel', serif; font-size: 0.65rem;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    border: none; cursor: pointer;
+    transition: all 0.5s; font-weight: 600;
+    position: relative; overflow: hidden;
+  }
+  .btn-primary::after {
+    content: '';
+    position: absolute; top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+    transition: left 0.6s;
+  }
+  .btn-primary:hover::after { left: 100%; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,168,76,0.4); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--cream);
+    padding: 0.85rem 2.5rem;
+    font-family: 'Cinzel', serif; font-size: 0.65rem;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    border: 1px solid rgba(232,213,163,0.35); cursor: pointer;
+    transition: all 0.5s;
+  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .scroll-hint {
+    position: absolute; bottom: 2rem; left: 50%;
+    transform: translateX(-50%);
+    z-index: 3; text-align: center;
+    opacity: 0; animation: fade-up 1s var(--transition) 1.8s forwards;
+  }
+  .scroll-line {
+    width: 1px; height: 50px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    margin: 0 auto 0.5rem;
+    animation: scroll-pulse 2s ease-in-out infinite;
+  }
+  .scroll-hint p {
+    font-family: 'Cinzel', serif; font-size: 0.5rem;
+    letter-spacing: 0.3em; color: var(--gold); opacity: 0.6;
+  }
+  @keyframes scroll-pulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(1); }
+    50%       { opacity: 1;   transform: scaleY(1.3); }
+  }
+
+  /* ── LOTUS DIVIDER ── */
+  .lotus-divider {
+    display: flex; align-items: center; justify-content: center;
+    gap: 1.5rem; padding: 1rem 0; margin: 1rem 0;
+  }
+  .lotus-divider::before, .lotus-divider::after {
+    content: ''; flex: 1; max-width: 200px;
+    height: 1px; background: linear-gradient(to right, transparent, var(--gold-dark));
+  }
+  .lotus-divider::after { background: linear-gradient(to left, transparent, var(--gold-dark)); }
+  .lotus-svg { width: 36px; height: 36px; opacity: 0.8; }
+
+  /* ── TRUST STRIP ── */
+  .trust-strip {
+    position: relative; z-index: 1;
+    background: linear-gradient(90deg, var(--umber-mid), var(--umber-light), var(--umber-mid));
+    border-top: 1px solid rgba(201,168,76,0.2);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    padding: 1rem 2rem; overflow: hidden;
+  }
+  .trust-inner {
+    display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap;
+  }
+  .trust-item {
+    font-family: 'Cinzel', serif; font-size: 0.6rem;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); opacity: 0.85;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .trust-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--saffron); }
+
+  /* ── SECTION COMMON ── */
+  section { position: relative; z-index: 1; }
+  .section-header { text-align: center; padding: 5rem 2rem 3rem; }
+  .section-eyebrow {
+    font-family: 'Cinzel', serif; font-size: 0.6rem;
+    letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--saffron); display: block; margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 300; color: var(--ivory); line-height: 1.1;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+  .section-sub {
+    font-family: 'EB Garamond', serif; font-size: 1rem;
+    font-style: italic; color: var(--cream); opacity: 0.7;
+    max-width: 500px; margin: 1rem auto 0; line-height: 1.7;
+  }
+
+  /* ── RITUAL SECTION ── */
+  #ritual {
+    background: var(--umber-mid);
+    padding: 6rem 4rem;
+  }
+  .ritual-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+    max-width: 1100px; margin: 0 auto; align-items: center;
+  }
+  .ritual-visual {
+    position: relative; height: 420px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .ritual-arch {
+    width: 260px; height: 360px;
+    border-radius: 130px 130px 0 0;
+    background: linear-gradient(160deg, rgba(61,34,16,0.9), rgba(28,15,7,0.95));
+    border: 1px solid rgba(201,168,76,0.3);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .ritual-arch::before {
+    content: ''; position: absolute; inset: -2px;
+    border-radius: 132px 132px 0 0;
+    background: linear-gradient(to bottom, var(--gold-dark), transparent);
+    z-index: -1; opacity: 0.4;
+  }
+  .ritual-icon { font-size: 6rem; opacity: 0.9; line-height: 1; }
+  .ritual-text h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem; font-weight: 400;
+    color: var(--ivory); margin-bottom: 1.5rem; line-height: 1.2;
+  }
+  .ritual-text h3 em { font-style: italic; color: var(--gold); }
+  .ritual-text p {
+    font-family: 'EB Garamond', serif; font-size: 1.05rem;
+    color: var(--cream); opacity: 0.75; line-height: 1.9;
+    margin-bottom: 1.2rem;
+  }
+  .ritual-features { list-style: none; margin-top: 1.5rem; }
+  .ritual-features li {
+    font-family: 'Cinzel', serif; font-size: 0.6rem;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .ritual-features li::before {
+    content: '✦'; color: var(--saffron); font-size: 0.5rem;
+  }
+
+  /* ── PRODUCTS ── */
+  #products { background: var(--umber); padding: 2rem 0 6rem; }
+  .category-nav {
+    display: flex; justify-content: center; gap: 0.5rem;
+    flex-wrap: wrap; padding: 0 2rem 3rem;
+  }
+  .cat-btn {
+    background: none; border: 1px solid rgba(201,168,76,0.25);
+    color: var(--cream); padding: 0.5rem 1.5rem;
+    font-family: 'Cinzel', serif; font-size: 0.6rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.4s; opacity: 0.7;
+  }
+  .cat-btn:hover, .cat-btn.active {
+    background: rgba(201,168,76,0.1);
+    border-color: var(--gold); color: var(--gold); opacity: 1;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2rem; padding: 0 4rem; max-width: 1300px; margin: 0 auto;
+  }
+
+  /* ARCH PRODUCT CARDS */
+  .product-card {
+    cursor: pointer;
+    background: linear-gradient(175deg, var(--umber-light) 0%, var(--umber-mid) 100%);
+    border: 1px solid rgba(201,168,76,0.15);
+    transition: all var(--transition);
+    position: relative; overflow: hidden;
+  }
+  .product-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(201,168,76,0.05) 0%, transparent 60%);
+    opacity: 0; transition: opacity var(--transition);
+  }
+  .product-card:hover { border-color: rgba(201,168,76,0.5); transform: translateY(-6px); box-shadow: var(--shadow-gold); }
+  .product-card:hover::before { opacity: 1; }
+
+  /* Gold shimmer */
+  .product-card::after {
+    content: '';
+    position: absolute; top: 0; left: -100%;
+    width: 60%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.08), transparent);
+    transition: left 2.5s ease;
+    z-index: 1;
+  }
+  .product-card:hover::after { left: 150%; }
+
+  .card-arch-frame {
+    width: 100%; height: 220px;
+    border-radius: 50% 50% 0 0 / 40px 40px 0 0;
+    background: linear-gradient(160deg, rgba(44,24,16,0.8), rgba(28,15,7,0.9));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 4rem; position: relative; overflow: hidden;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+  .card-arch-frame::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 30%, rgba(201,168,76,0.06) 0%, transparent 70%);
+  }
+  .card-arch-inner { position: relative; z-index: 1; }
+  .badge {
+    position: absolute; top: 12px; right: 12px;
+    background: var(--saffron); color: white;
+    font-family: 'Cinzel', serif; font-size: 0.5rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+  }
+  .badge.new { background: var(--gold-dark); }
+  .badge.sale { background: var(--saffron); }
+
+  .card-body { padding: 1.4rem 1.5rem 1.6rem; position: relative; z-index: 2; }
+  .card-category {
+    font-family: 'Cinzel', serif; font-size: 0.5rem;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--saffron); margin-bottom: 0.4rem; display: block;
+  }
+  .card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 500; color: var(--ivory);
+    line-height: 1.3; margin-bottom: 0.4rem;
+  }
+  .card-desc {
+    font-family: 'EB Garamond', serif; font-size: 0.85rem;
+    font-style: italic; color: var(--cream); opacity: 0.6;
+    line-height: 1.5; margin-bottom: 1rem;
+  }
+  .card-footer { display: flex; align-items: center; justify-content: space-between; }
+  .card-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 600; color: var(--gold);
+  }
+  .card-price-old {
+    font-size: 0.85rem; color: var(--cream); opacity: 0.4;
+    text-decoration: line-through; margin-left: 0.4rem;
+  }
+  .card-add {
+    background: none; border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold); width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 1.2rem; transition: all 0.4s;
+  }
+  .card-add:hover { background: rgba(201,168,76,0.15); border-color: var(--gold); }
+  .card-rating {
+    display: flex; align-items: center; gap: 0.3rem;
+    font-size: 0.65rem; color: var(--gold); margin-bottom: 0.8rem;
+  }
+  .card-rating span { color: var(--cream); opacity: 0.5; font-family: 'EB Garamond', serif; }
+
+  /* ── PRODUCT MODAL ── */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(14,7,4,0.92);
+    backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: center;
+    padding: 2rem;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.5s;
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+  .modal-box {
+    background: linear-gradient(145deg, var(--umber-light), var(--umber-mid));
+    border: 1px solid rgba(201,168,76,0.25);
+    max-width: 900px; width: 100%;
+    max-height: 90vh; overflow-y: auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    transform: translateY(30px) scale(0.97);
+    transition: transform 0.6s var(--transition);
+    position: relative;
+  }
+  .modal-overlay.open .modal-box {
+    transform: translateY(0) scale(1);
+  }
+  .modal-close {
+    position: absolute; top: 1.2rem; right: 1.2rem;
+    background: none; border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold); width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 1rem; z-index: 10;
+    transition: all 0.3s;
+  }
+  .modal-close:hover { background: rgba(201,168,76,0.1); }
+
+  .modal-visual {
+    background: linear-gradient(160deg, var(--umber), var(--umber-mid));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 8rem; min-height: 380px;
+    border-right: 1px solid rgba(201,168,76,0.1);
+    position: relative;
+  }
+  .modal-visual::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 40%, rgba(201,168,76,0.08) 0%, transparent 70%);
+  }
+  .modal-info { padding: 2.5rem 2rem; }
+  .modal-cat {
+    font-family: 'Cinzel', serif; font-size: 0.55rem;
+    letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--saffron); display: block; margin-bottom: 0.6rem;
+  }
+  .modal-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 400; color: var(--ivory);
+    line-height: 1.2; margin-bottom: 1rem;
+  }
+  .modal-rating { display: flex; align-items: center; gap: 0.4rem; margin-bottom: 1rem; }
+  .modal-rating .stars { color: var(--gold); font-size: 0.75rem; }
+  .modal-rating span { font-family: 'EB Garamond', serif; font-size: 0.85rem; color: var(--cream); opacity: 0.6; }
+  .modal-desc {
+    font-family: 'EB Garamond', serif; font-size: 1rem;
+    font-style: italic; color: var(--cream); opacity: 0.75;
+    line-height: 1.8; margin-bottom: 1.5rem;
+  }
+  .modal-features {
+    list-style: none; margin-bottom: 1.5rem;
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }
+  .modal-features li {
+    font-family: 'Cinzel', serif; font-size: 0.55rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--cream); opacity: 0.65;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .modal-features li::before { content: '✦'; color: var(--gold); font-size: 0.45rem; }
+  .modal-price-row {
+    display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem;
+  }
+  .modal-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 600; color: var(--gold);
+  }
+  .modal-price-old {
+    font-size: 1rem; color: var(--cream); opacity: 0.4; text-decoration: line-through;
+  }
+  .modal-qty {
+    display: flex; align-items: center; gap: 0; margin-bottom: 1.5rem;
+  }
+  .qty-btn {
+    background: none; border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold); width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 1.1rem; transition: all 0.3s;
+  }
+  .qty-btn:hover { background: rgba(201,168,76,0.1); }
+  .qty-num {
+    width: 48px; text-align: center;
+    background: rgba(201,168,76,0.05);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-left: none; border-right: none;
+    color: var(--ivory); font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; padding: 0.4rem 0; height: 36px;
+  }
+  .modal-actions { display: flex; flex-direction: column; gap: 0.8rem; }
+  .btn-buy {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+    color: var(--umber); padding: 0.9rem;
+    font-family: 'Cinzel', serif; font-size: 0.65rem;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    border: none; cursor: pointer; font-weight: 600;
+    transition: all 0.5s; position: relative; overflow: hidden;
+  }
+  .btn-buy::after {
+    content: '';
+    position: absolute; top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+  }
+  .btn-buy:hover::after { left: 100%; }
+  .btn-buy:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(201,168,76,0.35); }
+  .btn-cart-add {
+    background: transparent; color: var(--cream);
+    padding: 0.9rem;
+    font-family: 'Cinzel', serif; font-size: 0.65rem;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    border: 1px solid rgba(232,213,163,0.3); cursor: pointer;
+    transition: all 0.4s;
+  }
+  .btn-cart-add:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── CART DRAWER ── */
+  .cart-overlay {
+    position: fixed; inset: 0; z-index: 300;
+    background: rgba(14,7,4,0.6);
+    backdrop-filter: blur(4px);
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.4s;
+  }
+  .cart-overlay.open { opacity: 1; pointer-events: all; }
+
+  .cart-drawer {
+    position: fixed; top: 0; right: 0; bottom: 0;
+    width: min(420px, 90vw);
+    background: linear-gradient(180deg, var(--umber-light) 0%, var(--umber-mid) 100%);
+    border-left: 1px solid rgba(201,168,76,0.2);
+    z-index: 301;
+    transform: translateX(100%);
+    transition: transform var(--transition);
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+  .cart-overlay.open .cart-drawer { transform: translateX(0); }
+
+  .cart-header {
+    padding: 1.8rem 1.8rem 1.2rem;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .cart-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 500; color: var(--ivory);
+  }
+  .cart-title span {
+    font-family: 'Cinzel', serif; font-size: 0.55rem;
+    letter-spacing: 0.25em; color: var(--gold);
+    display: block; margin-top: 2px;
+  }
+  .cart-close-btn {
+    background: none; border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold); width: 34px; height: 34px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 0.9rem; transition: all 0.3s;
+  }
+  .cart-close-btn:hover { background: rgba(201,168,76,0.1); }
+
+  .cart-items { flex: 1; overflow-y: auto; padding: 1rem 1.8rem; }
+  .cart-item {
+    display: flex; gap: 1rem; padding: 1rem 0;
+    border-bottom: 1px solid rgba(201,168,76,0.08);
+  }
+  .cart-item-icon {
+    width: 56px; height: 56px;
+    background: rgba(44,24,16,0.6);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; flex-shrink: 0;
+  }
+  .cart-item-info { flex: 1; }
+  .cart-item-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem; font-weight: 500; color: var(--ivory);
+    margin-bottom: 0.2rem;
+  }
+  .cart-item-cat {
+    font-family: 'Cinzel', serif; font-size: 0.5rem;
+    letter-spacing: 0.2em; color: var(--saffron); margin-bottom: 0.5rem;
+  }
+  .cart-item-controls {
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .ci-qty {
+    display: flex; align-items: center; gap: 0;
+  }
+  .ci-btn {
+    background: none; border: 1px solid rgba(201,168,76,0.25);
+    color: var(--gold); width: 24px; height: 24px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 0.75rem; transition: all 0.3s;
+  }
+  .ci-btn:hover { background: rgba(201,168,76,0.1); }
+  .ci-count {
+    width: 30px; text-align: center;
+    border: 1px solid rgba(201,168,76,0.2);
+    border-left: none; border-right: none;
+    background: rgba(201,168,76,0.05);
+    color: var(--ivory); font-family: 'EB Garamond', serif;
+    font-size: 0.9rem; height: 24px; line-height: 24px;
+  }
+  .cart-item-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; font-weight: 600; color: var(--gold);
+    margin-left: auto; align-self: flex-end;
+  }
+  .remove-btn {
+    background: none; border: none; color: var(--cream);
+    opacity: 0.3; cursor: pointer; font-size: 0.75rem;
+    transition: opacity 0.3s; padding: 0 0.3rem;
+  }
+  .remove-btn:hover { opacity: 0.8; color: var(--saffron); }
+
+  .cart-empty {
+    text-align: center; padding: 4rem 2rem;
+    font-family: 'EB Garamond', serif; font-style: italic;
+    color: var(--cream); opacity: 0.45; font-size: 1rem;
+  }
+
+  .cart-footer {
+    padding: 1.5rem 1.8rem;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    background: rgba(28,15,7,0.5);
+  }
+  .cart-subtotal {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 0.5rem;
+  }
+  .cart-subtotal .label {
+    font-family: 'Cinzel', serif; font-size: 0.6rem;
+    letter-spacing: 0.2em; color: var(--cream); opacity: 0.6;
+  }
+  .cart-subtotal .amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 600; color: var(--gold);
+  }
+  .cart-note {
+    font-family: 'EB Garamond', serif; font-size: 0.8rem;
+    font-style: italic; color: var(--cream); opacity: 0.4;
+    margin-bottom: 1.2rem;
+  }
+  .btn-checkout {
+    width: 100%;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+    color: var(--umber); padding: 1rem;
+    font-family: 'Cinzel', serif; font-size: 0.7rem;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    border: none; cursor: pointer; font-weight: 600;
+    transition: all 0.5s; position: relative; overflow: hidden;
+  }
+  .btn-checkout::after {
+    content: '';
+    position: absolute; top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+  }
+  .btn-checkout:hover::after { left: 100%; }
+  .btn-checkout:hover { box-shadow: 0 8px 24px rgba(201,168,76,0.4); }
+
+  /* ── RAZORPAY CHECKOUT MODAL ── */
+  .pay-overlay {
+    position: fixed; inset: 0; z-index: 400;
+    background: rgba(14,7,4,0.95);
+    backdrop-filter: blur(12px);
+    display: flex; align-items: center; justify-content: center; padding: 2rem;
+    opacity: 0; pointer-events: none; transition: opacity 0.5s;
+  }
+  .pay-overlay.open { opacity: 1; pointer-events: all; }
+
+  .pay-box {
+    background: white; border-radius: 8px;
+    width: min(420px, 95vw); overflow: hidden;
+    transform: translateY(20px) scale(0.97);
+    transition: transform 0.5s var(--transition);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+  }
+  .pay-overlay.open .pay-box { transform: translateY(0) scale(1); }
+
+  .pay-header {
+    background: #072654;
+    padding: 1.2rem 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .pay-brand {
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .pay-brand .rzp-logo {
+    background: #3395FF; color: white;
+    font-weight: 800; font-size: 0.65rem; font-family: sans-serif;
+    padding: 0.25rem 0.5rem; border-radius: 3px; letter-spacing: 0.05em;
+  }
+  .pay-brand span { color: rgba(255,255,255,0.7); font-size: 0.75rem; font-family: sans-serif; }
+  .pay-secure { display: flex; align-items: center; gap: 0.3rem; color: rgba(255,255,255,0.5); font-size: 0.65rem; font-family: sans-serif; }
+  .pay-merchant {
+    background: #f8f8f8; padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid #eee;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .pay-merchant .name { font-family: sans-serif; font-weight: 600; font-size: 0.95rem; color: #1a1a2e; }
+  .pay-merchant .amount { font-family: sans-serif; font-weight: 700; font-size: 1.3rem; color: #1a1a2e; }
+  .pay-merchant .sub { font-family: sans-serif; font-size: 0.7rem; color: #888; }
+  .pay-body { padding: 1.5rem; }
+  .pay-method-tabs {
+    display: flex; border-bottom: 2px solid #eee; margin-bottom: 1.2rem;
+  }
+  .pay-tab {
+    padding: 0.6rem 1rem; font-family: sans-serif; font-size: 0.75rem;
+    color: #666; cursor: pointer; border-bottom: 2px solid transparent;
+    margin-bottom: -2px; transition: all 0.3s;
+  }
+  .pay-tab.active { color: #3395FF; border-bottom-color: #3395FF; font-weight: 600; }
+  .pay-input-group { margin-bottom: 1rem; }
+  .pay-label { font-family: sans-serif; font-size: 0.7rem; color: #888; margin-bottom: 0.3rem; display: block; }
+  .pay-input {
+    width: 100%; padding: 0.7rem 0.9rem;
+    border: 1.5px solid #ddd; border-radius: 4px;
+    font-family: sans-serif; font-size: 0.9rem; color: #333;
+    transition: border-color 0.3s; outline: none;
+  }
+  .pay-input:focus { border-color: #3395FF; }
+  .pay-row { display: flex; gap: 0.8rem; }
+  .pay-row .pay-input-group { flex: 1; }
+  .pay-upi-row { display: flex; gap: 0.8rem; }
+  .pay-upi-row .pay-input { flex: 1; }
+  .btn-pay {
+    width: 100%; background: #3395FF; color: white; padding: 0.9rem;
+    font-family: sans-serif; font-weight: 600; font-size: 0.9rem;
+    border: none; border-radius: 4px; cursor: pointer;
+    transition: background 0.3s; margin-top: 0.5rem;
+  }
+  .btn-pay:hover { background: #2277dd; }
+  .pay-footer { padding: 0.8rem 1.5rem 1.2rem; text-align: center; }
+  .pay-footer p { font-family: sans-serif; font-size: 0.65rem; color: #aaa; }
+  .pay-close-btn {
+    background: none; border: none; color: rgba(255,255,255,0.6);
+    cursor: pointer; font-size: 1.2rem; transition: color 0.3s;
+  }
+  .pay-close-btn:hover { color: white; }
+  .pay-upi-options {
+    display: flex; gap: 0.6rem; margin-bottom: 1rem; flex-wrap: wrap;
+  }
+  .upi-opt {
+    padding: 0.4rem 0.8rem; border: 1.5px solid #ddd; border-radius: 4px;
+    font-family: sans-serif; font-size: 0.7rem; color: #555; cursor: pointer;
+    transition: all 0.3s;
+  }
+  .upi-opt:hover, .upi-opt.selected { border-color: #3395FF; color: #3395FF; background: #f0f7ff; }
+
+  /* ── FOOTER ── */
+  footer {
+    position: relative; z-index: 1;
+    background: var(--umber); padding: 5rem 4rem 2rem;
+    border-top: 1px solid rgba(201,168,76,0.15);
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem; max-width: 1200px; margin: 0 auto 4rem;
+  }
+  .footer-brand .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem; font-weight: 600; color: var(--gold);
+    display: block; margin-bottom: 0.3rem;
+  }
+  .footer-brand .tagline {
+    font-family: 'Cinzel', serif; font-size: 0.5rem;
+    letter-spacing: 0.3em; color: var(--cream); opacity: 0.5; margin-bottom: 1.2rem;
+  }
+  .footer-brand p {
+    font-family: 'EB Garamond', serif; font-size: 0.9rem;
+    font-style: italic; color: var(--cream); opacity: 0.55;
+    line-height: 1.8; max-width: 280px;
+  }
+  .footer-col h4 {
+    font-family: 'Cinzel', serif; font-size: 0.6rem;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.2rem;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 0.6rem; }
+  .footer-col ul li a {
+    font-family: 'EB Garamond', serif; font-size: 0.9rem;
+    color: var(--cream); opacity: 0.55; text-decoration: none;
+    transition: opacity 0.3s, color 0.3s;
+  }
+  .footer-col ul li a:hover { opacity: 1; color: var(--gold); }
+  .footer-bottom {
+    border-top: 1px solid rgba(201,168,76,0.1);
+    padding-top: 1.5rem; text-align: center;
+    font-family: 'Cinzel', serif; font-size: 0.5rem;
+    letter-spacing: 0.2em; color: var(--cream); opacity: 0.3;
+  }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed; bottom: 2rem; left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: linear-gradient(135deg, var(--umber-light), var(--umber-mid));
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--ivory); padding: 0.8rem 1.8rem;
+    font-family: 'Cinzel', serif; font-size: 0.6rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    z-index: 999; transition: transform 0.5s var(--transition);
+    display: flex; align-items: center; gap: 0.6rem; white-space: nowrap;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+  .toast-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+
+  /* ── SUCCESS SCREEN ── */
+  .success-box {
+    text-align: center; padding: 2.5rem 1.5rem;
+    display: none;
+  }
+  .success-box.show { display: block; }
+  .pay-body.hidden { display: none; }
+  .success-icon { font-size: 3rem; margin-bottom: 1rem; }
+  .success-box h3 { font-family: sans-serif; font-size: 1.1rem; font-weight: 700; color: #1a1a2e; margin-bottom: 0.4rem; }
+  .success-box p { font-family: sans-serif; font-size: 0.8rem; color: #888; margin-bottom: 1.2rem; }
+  .success-id { font-family: monospace; font-size: 0.7rem; color: #3395FF; background: #f0f7ff; padding: 0.3rem 0.7rem; border-radius: 3px; display: inline-block; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .ritual-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .ritual-visual { height: 240px; }
+    .product-grid { padding: 0 1.5rem; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .modal-box { grid-template-columns: 1fr; }
+    .modal-visual { min-height: 200px; }
+    #ritual { padding: 4rem 1.5rem; }
+  }
+  @media (max-width: 600px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .trust-inner { gap: 1.5rem; }
+    .hero-cta-group { flex-direction: column; align-items: center; }
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.9s var(--transition), transform 0.9s var(--transition);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     PREMIUM ENHANCEMENT LAYER — Divya Aroha Sacred Offerings
+     ═══════════════════════════════════════════════════════════════════════ */
+
+  /* ── CUSTOM GOLDEN CURSOR ── */
+  body, *, *::before, *::after { cursor: none !important; }  .sacred-cursor {
+    position: fixed; width: 8px; height: 8px;
+    background: var(--gold); border-radius: 50%; pointer-events: none;
+    z-index: 99999; transform: translate(-50%,-50%);
+    box-shadow: 0 0 10px 3px rgba(201,168,76,0.55);
+    transition: transform 0.1s, width 0.25s, height 0.25s;
+    mix-blend-mode: screen;
+  }
+  .sacred-cursor-ring {
+    position: fixed; width: 32px; height: 32px;
+    border: 1px solid rgba(201,168,76,0.45); border-radius: 50%;
+    pointer-events: none; z-index: 99998;
+    transform: translate(-50%,-50%);
+    transition: width 0.4s cubic-bezier(0.16,1,0.3,1),
+                height 0.4s cubic-bezier(0.16,1,0.3,1),
+                border-color 0.3s, left 0.08s linear, top 0.08s linear;
+  }
+
+  .sacred-cursor-ring.expand { width: 54px; height: 54px; border-color: rgba(201,168,76,0.75); }
+
+  /* ── GRAIN FILM OVERLAY (premium feel) ── */
+  .grain-overlay { position: fixed; inset: 0; z-index: 9 !important; pointer-events: none !important; opacity: 0.022; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"); background-size: 180px 180px; }
+
+  /* ── HERO ENHANCEMENTS ── */
+  /* ── HERO CONTENT Z-INDEX FIX ── */
+.hero-content {
+  position: relative;
+  z-index: 10 !important;
+}
+.hero-rays, .hero-mandala, #hero-canvas,
+.hero-aura, .hero-petals, .smoke-container { z-index: 2 !important; }
+.hero-frame { z-index: 3 !important; }
+
+/* ── HERO PRODUCT PILLS ── */
+.hero-pills {
+  display: flex;
+  justify-content: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  margin: 0 auto 1.8rem;
+  max-width: 700px;
+  opacity: 0;
+  animation: fade-up 1.2s var(--transition) 1.0s forwards;
+}
+.hero-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(201,168,76,0.07);
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 0.55rem 1.1rem;
+  backdrop-filter: blur(6px);
+  transition: background 0.4s, border-color 0.4s, transform 0.4s;
+  cursor: default;
+}
+.hero-pill:hover {
+  background: rgba(201,168,76,0.13);
+  border-color: rgba(201,168,76,0.45);
+  transform: translateY(-3px);
+}
+.hero-pill-icon { font-size: 1.1rem; line-height: 1; }
+.hero-pill-text {
+  font-family: 'Cinzel', serif;
+  font-size: 0.52rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cream);
+  opacity: 0.8;
+  line-height: 1.7;
+  text-align: left;
+}
+.hero-pill-text em {
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.78rem;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  display: block;
+}
+
+/* ── HERO TRUST TAGLINE STRIP ── */
+.hero-tagline-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 0 auto 2.2rem;
+  max-width: 680px;
+  opacity: 0;
+  animation: fade-up 1.2s var(--transition) 1.3s forwards;
+}
+.hero-tag-item {
+  font-family: 'Cinzel', serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--cream);
+  opacity: 0.6;
+  transition: opacity 0.3s, color 0.3s;
+}
+.hero-tag-item:hover { opacity: 1; color: var(--gold); }
+.hero-tag-sep {
+  color: var(--gold);
+  opacity: 0.3;
+  font-size: 0.4rem;
+}
+  /* Crepuscular light rays */
+  .hero-rays {
+    position: absolute; inset: 0; z-index: 2; pointer-events: none; overflow: hidden;
+  }
+  .hero-rays::before {
+    content: '';
+    position: absolute; top: 50%; left: 50%; width: 200%; height: 200%;
+    transform: translate(-50%,-50%);
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg, rgba(201,168,76,0.025) 2deg, transparent 5deg,
+      transparent 22deg, rgba(201,168,76,0.025) 24deg, transparent 27deg,
+      transparent 44deg, rgba(201,168,76,0.025) 46deg, transparent 49deg,
+      transparent 88deg, rgba(201,168,76,0.025) 90deg, transparent 93deg,
+      transparent 110deg, rgba(201,168,76,0.025) 112deg, transparent 115deg,
+      transparent 148deg, rgba(201,168,76,0.025) 150deg, transparent 153deg,
+      transparent 205deg, rgba(201,168,76,0.025) 207deg, transparent 210deg,
+      transparent 260deg, rgba(201,168,76,0.025) 262deg, transparent 265deg,
+      transparent 305deg, rgba(201,168,76,0.025) 307deg, transparent 310deg,
+      transparent 345deg, rgba(201,168,76,0.025) 347deg, transparent 350deg
+    );
+    animation: rays-spin 50s linear infinite;
+  }
+  @keyframes rays-spin {
+    from { transform: translate(-50%,-50%) rotate(0deg); }
+    to   { transform: translate(-50%,-50%) rotate(360deg); }
+  }
+
+  /* Large detailed hero mandala */
+  .hero-mandala {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: min(88vh, 88vw); height: min(88vh, 88vw);
+    z-index: 2; pointer-events: none;
+    animation: mandala-breathe 10s ease-in-out infinite;
+  }
+  @keyframes mandala-breathe {
+    0%, 100% { opacity: 0.08; transform: translate(-50%,-50%) scale(1) rotate(0deg); }
+    50%       { opacity: 0.14; transform: translate(-50%,-50%) scale(1.04) rotate(2.5deg); }
+  }
+
+  /* Ember canvas */
+  #hero-canvas {
+    position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  }
+
+  /* Sacred corner frame */
+  .hero-frame {
+    position: absolute; inset: 0; z-index: 3; pointer-events: none;
+  }
+  .hero-frame::before, .hero-frame::after {
+    content: '';
+    position: absolute;
+    width: 100px; height: 100px;
+    border-color: rgba(201,168,76,0.22);
+    border-style: solid;
+  }
+  .hero-frame::before { top: 4%; left: 3.5%; border-width: 1px 0 0 1px; }
+  .hero-frame::after  { bottom: 4%; right: 3.5%; border-width: 0 1px 1px 0; }
+  .hero-frame-br, .hero-frame-tl {
+    position: absolute; width: 100px; height: 100px;
+    border-color: rgba(201,168,76,0.22); border-style: solid;
+    pointer-events: none;
+  }
+  .hero-frame-tl { top: 4%; right: 3.5%; border-width: 1px 1px 0 0; }
+  .hero-frame-br { bottom: 4%; left: 3.5%; border-width: 0 0 1px 1px; }
+
+  /* Sacred aura behind content */
+  .hero-aura {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 650px; height: 650px;
+    background: radial-gradient(ellipse at center,
+      rgba(201,168,76,0.07) 0%,
+      rgba(184,92,26,0.04) 35%,
+      transparent 68%
+    );
+    border-radius: 50%;
+    z-index: 2; pointer-events: none;
+    animation: aura-breathe 7s ease-in-out infinite;
+  }
+  @keyframes aura-breathe {
+    0%, 100% { transform: translate(-50%,-50%) scale(1);    opacity: 0.65; }
+    50%       { transform: translate(-50%,-50%) scale(1.18); opacity: 1; }
+  }
+
+  /* OM symbol */
+  .hero-om {
+    position: absolute; top: 11%; left: 50%; transform: translateX(-50%);
+    font-size: 1.4rem; color: var(--gold); opacity: 0;
+    z-index: 4; pointer-events: none; font-family: serif; letter-spacing: 0;
+    text-shadow: 0 0 24px rgba(201,168,76,0.5);
+    animation: fade-up 1s var(--transition) 0.2s forwards,
+               om-pulse 5s ease-in-out 1.5s infinite;
+  }
+  @keyframes om-pulse {
+    0%, 100% { text-shadow: 0 0 20px rgba(201,168,76,0.3); opacity: 0.45; }
+    50%       { text-shadow: 0 0 50px rgba(201,168,76,0.85), 0 0 80px rgba(184,92,26,0.3); opacity: 0.85; }
+  }
+
+  /* Floating petal container */
+  .hero-petals {
+    position: absolute; inset: 0; z-index: 2; pointer-events: none; overflow: hidden;
+  }
+  .petal {
+    position: absolute; font-size: 0.75rem; opacity: 0; user-select: none;
+    animation: petal-drift linear infinite;
+  }
+  @keyframes petal-drift {
+    0%   { opacity: 0;    transform: translateY(-10px) rotate(0deg) translateX(0); }
+    8%   { opacity: 0.35; }
+    92%  { opacity: 0.12; }
+    100% { opacity: 0;    transform: translateY(105vh) rotate(600deg) translateX(50px); }
+  }
+
+  /* Diya at bottom */
+  .hero-diya {
+    position: absolute; bottom: 14%; left: 50%; transform: translateX(-50%);
+    z-index: 4; pointer-events: none; opacity: 0;
+    animation: fade-up 1.2s var(--transition) 2.2s forwards;
+    text-align: center;
+  }
+  .diya-flame {
+    width: 14px; height: 26px; margin: 0 auto 2px;
+    background: radial-gradient(ellipse at 50% 85%,
+      #FFFDE4 0%, #FFD600 18%, #FF9500 45%, #FF4C00 78%, transparent 100%
+    );
+    border-radius: 50% 50% 28% 28%;
+    animation: flame-dance 1.4s ease-in-out infinite alternate;
+    box-shadow: 0 0 12px 5px rgba(255,140,0,0.45), 0 0 28px 10px rgba(255,69,0,0.14);
+  }
+  .diya-base {
+    width: 36px; height: 7px;
+    background: linear-gradient(to right, var(--umber-light), var(--gold-dark), var(--umber-light));
+    border-radius: 50%; opacity: 0.55;
+  }
+  @keyframes flame-dance {
+    0%   { transform: scaleX(1)    scaleY(1)    skewX(0deg); }
+    25%  { transform: scaleX(0.88) scaleY(1.06) skewX(-4deg); }
+    50%  { transform: scaleX(1.07) scaleY(0.96) skewX(3deg); }
+    75%  { transform: scaleX(0.94) scaleY(1.04) skewX(-2deg); }
+    100% { transform: scaleX(1.03) scaleY(0.94) skewX(4deg); }
+  }
+
+  /* ── HERO EYEBROW: FROSTED PILL ── */
+  .hero-eyebrow { position: relative !important; z-index: 9999 !important; }
+.hero-eyebrow {
+    display: inline-block !important;
+    padding: 0.35rem 1.4rem !important;
+    background: rgba(201,168,76,0.07) !important;
+    border: 1px solid rgba(201,168,76,0.22) !important;
+    letter-spacing: 0.55em !important;
+    backdrop-filter: blur(4px) !important;
+  }
+
+  /* ── HERO TITLE: SHIMMER GRADIENT TEXT ── */
+  .hero-title {
+    background: linear-gradient(135deg,
+      var(--ivory) 0%, var(--gold-light) 28%, var(--ivory) 48%, var(--gold-light) 68%, var(--ivory) 100%
+    );
+    background-size: 220% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: fade-up 1.4s var(--transition) 0.6s forwards,
+               shimmer-slide 5.5s linear 2.2s infinite !important;
+  }
+  .hero-title em {
+    background: linear-gradient(135deg,
+      var(--gold) 0%, var(--gold-light) 28%, var(--saffron-lt) 50%, var(--gold-light) 70%, var(--gold) 100%
+    );
+    background-size: 220% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-style: italic;
+    animation: shimmer-slide 4s linear 2.8s infinite;
+  }
+  @keyframes shimmer-slide {
+    from { background-position: 0% center; }
+    to   { background-position: 220% center; }
+  }
+
+  /* ── SECTION TITLES: SHIMMER ── */
+  .section-title {
+    background: linear-gradient(135deg,
+      var(--ivory) 0%, var(--gold-light) 38%, var(--ivory) 54%, var(--gold-light) 72%, var(--ivory) 100%
+    );
+    background-size: 240% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer-slide 7s linear 1s infinite;
+  }
+  .section-title em {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer-slide 4s linear infinite;
+  }
+
+  /* ── PRODUCT CARDS: DEEPER PREMIUM ── */
+  .product-card {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.32), inset 0 1px 0 rgba(201,168,76,0.07);
+  }
+  .product-card:hover {
+    box-shadow:
+      0 24px 64px rgba(0,0,0,0.55),
+      0 0 0 1px rgba(201,168,76,0.22),
+      0 0 40px rgba(201,168,76,0.1),
+      inset 0 1px 0 rgba(201,168,76,0.14) !important;
+  }
+
+  /* ── RITUAL ARCH GLOW ── */
+  .ritual-arch {
+    box-shadow: 0 0 70px rgba(201,168,76,0.07), inset 0 0 50px rgba(28,15,7,0.85);
+  }
+
+  /* ── TRUST STRIP: INFINITE TICKER ── */
+  #trust-inner-wrap {
+    display: flex; gap: 4rem; flex-wrap: nowrap; min-width: max-content;
+    animation: ticker 26s linear infinite;
+  }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ── LOTUS DIVIDER: BRIGHTER ── */
+  .lotus-divider::before {
+    background: linear-gradient(to right, transparent, rgba(201,168,76,0.55), rgba(201,168,76,0.12)) !important;
+  }
+  .lotus-divider::after {
+    background: linear-gradient(to left, transparent, rgba(201,168,76,0.55), rgba(201,168,76,0.12)) !important;
+  }
+
+  /* ── NAV LOGO HOVER GLOW ── */
+  .nav-logo { transition: filter 0.4s; }
+  .nav-logo:hover { filter: drop-shadow(0 0 18px rgba(201,168,76,0.5)); }
+
+  /* ── BTN PRIMARY: DEEPER HOVER ── */
+  .btn-primary:hover {
+    box-shadow:
+      0 10px 32px rgba(201,168,76,0.42),
+      0 0 0 1px rgba(201,168,76,0.3),
+      0 0 60px rgba(201,168,76,0.12) !important;
+  }
+
+  /* ── FOOTER: GOLD TOP LINE ── */
+  footer { position: relative; }
+  footer::before {
+    content: '';
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 260px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+
+  /* ── MODAL: PREMIUM SHADOW ── */
+  .modal-box {
+    box-shadow:
+      0 48px 130px rgba(0,0,0,0.85),
+      0 0 80px rgba(201,168,76,0.06),
+      inset 0 1px 0 rgba(201,168,76,0.1) !important;
+  }
+
+  /* ── CART DRAWER: DEPTH SHADOW ── */
+  .cart-drawer {
+    box-shadow: -20px 0 80px rgba(0,0,0,0.65), -3px 0 18px rgba(201,168,76,0.05);
+  }
+
+  /* ── SCROLLBAR: PREMIUM ── */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--gold-dark), var(--saffron));
+    border-radius: 4px;
+  }
+
+  /* ── RESPONSIVE TRIM ── */
+  @media (max-width: 600px) {
+    .hero-frame::before, .hero-frame::after,
+    .hero-frame-tl, .hero-frame-br { width: 55px; height: 55px; }
+    .hero-aura { width: 90vw; height: 90vw; }
+    .hero-om { font-size: 1.1rem; top: 8%; }
+  }
+
+
+  /* ═══════════════════════════════════════════════════════════
+     CONTENT SECTIONS — Text, Stats, Timeline, Testimonials
+     ═══════════════════════════════════════════════════════════ */
+
+  /* ── MANTRA MARQUEE ── */
+  .mantra-marquee {
+    position: relative; z-index: 1; overflow: hidden;
+    padding: 1.2rem 0; background: var(--umber);
+    border-top: 1px solid rgba(201,168,76,0.08);
+    border-bottom: 1px solid rgba(201,168,76,0.08);
+  }
+  .mantra-track {
+    display: flex; gap: 3.5rem; white-space: nowrap;
+    animation: mantra-scroll 30s linear infinite;
+  }
+  .mantra-track.reverse { animation-direction: reverse; animation-duration: 36s; }
+  .mantra-word {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.8rem; font-style: italic;
+    color: var(--gold); opacity: 0.45;
+    letter-spacing: 0.18em; user-select: none;
+    display: flex; align-items: center; gap: 1.2rem;
+  }
+  .mantra-word::after { content: '✦'; font-style: normal; opacity: 0.5; font-size: 0.5rem; }
+  @keyframes mantra-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ── PHILOSOPHY SECTION ── */
+  #philosophy {
+    background: var(--umber-mid);
+    padding: 7rem 4rem;
+    position: relative; z-index: 1; overflow: hidden;
+  }
+  #philosophy::before {
+    content: '"';
+    position: absolute; top: 2rem; left: 4rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18rem; font-weight: 300; line-height: 1;
+    color: var(--gold); opacity: 0.04;
+    pointer-events: none; user-select: none;
+  }
+  .philosophy-inner {
+    max-width: 820px; margin: 0 auto; text-align: center;
+    position: relative; z-index: 2;
+  }
+  .philosophy-tag {
+    font-family: 'Cinzel', serif; font-size: 0.58rem;
+    letter-spacing: 0.5em; text-transform: uppercase;
+    color: var(--saffron); display: block; margin-bottom: 2.5rem;
+  }
+  .philosophy-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+    font-weight: 300; font-style: italic;
+    color: var(--ivory); line-height: 1.4;
+    margin-bottom: 2.5rem; min-height: 4em;
+  }
+  .philosophy-quote .typed-cursor {
+    display: inline-block; width: 2px; height: 1em;
+    background: var(--gold); margin-left: 4px;
+    animation: cursor-blink 0.9s step-end infinite; vertical-align: middle;
+  }
+  @keyframes cursor-blink { 0%,100%{opacity:1} 50%{opacity:0} }
+  .philosophy-attr {
+    font-family: 'Cinzel', serif; font-size: 0.58rem;
+    letter-spacing: 0.35em; color: var(--gold); opacity: 0.6;
+    text-transform: uppercase;
+  }
+  .philosophy-pillars {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem; margin-top: 5rem; text-align: left;
+  }
+  .pillar {
+    padding: 2rem 1.8rem;
+    background: rgba(28,15,7,0.5);
+    border: 1px solid rgba(201,168,76,0.1);
+    position: relative; overflow: hidden;
+    transition: border-color 0.5s, transform 0.5s;
+  }
+  .pillar:hover { border-color: rgba(201,168,76,0.35); transform: translateY(-4px); }
+  .pillar::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(to right, transparent, var(--gold-dark), transparent);
+    opacity: 0; transition: opacity 0.5s;
+  }
+  .pillar:hover::before { opacity: 1; }
+  .pillar-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem; font-weight: 300; line-height: 1;
+    color: var(--gold); opacity: 0.18; margin-bottom: 0.8rem;
+    display: block;
+  }
+  .pillar-title {
+    font-family: 'Cinzel', serif; font-size: 0.62rem;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.9rem; display: block;
+  }
+  .pillar p {
+    font-family: 'EB Garamond', serif; font-size: 0.95rem;
+    font-style: italic; color: var(--cream); opacity: 0.65; line-height: 1.85;
+  }
+
+  /* ── STATS SECTION ── */
+  #stats {
+    background: var(--umber);
+    padding: 5rem 4rem;
+    position: relative; z-index: 1;
+  }
+  .stats-eyebrow {
+    text-align: center;
+    font-family: 'Cinzel', serif; font-size: 0.58rem;
+    letter-spacing: 0.45em; text-transform: uppercase;
+    color: var(--saffron); display: block; margin-bottom: 3.5rem;
+  }
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0; max-width: 1100px; margin: 0 auto;
+  }
+  .stat-card {
+    text-align: center; padding: 2.5rem 1.5rem;
+    border-right: 1px solid rgba(201,168,76,0.1);
+    position: relative;
+  }
+  .stat-card:last-child { border-right: none; }
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 300;
+    color: var(--gold); line-height: 1; display: block;
+    margin-bottom: 0.4rem;
+  }
+  .stat-suffix {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; color: var(--saffron-lt);
+  }
+  .stat-label {
+    font-family: 'Cinzel', serif; font-size: 0.55rem;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--cream); opacity: 0.55; display: block;
+    margin-top: 0.5rem;
+  }
+  .stat-desc {
+    font-family: 'EB Garamond', serif; font-size: 0.82rem;
+    font-style: italic; color: var(--cream); opacity: 0.38;
+    margin-top: 0.4rem; line-height: 1.5;
+  }
+  .stat-divider {
+    position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 30px; height: 2px;
+    background: linear-gradient(to right, transparent, var(--gold-dark), transparent);
+    opacity: 0;
+    transition: opacity 0.6s;
+  }
+  .stat-card.counted .stat-divider { opacity: 1; }
+
+  /* ── SACRED PROCESS SECTION ── */
+  #process {
+    background: var(--umber-mid);
+    padding: 7rem 4rem;
+    position: relative; z-index: 1; overflow: hidden;
+  }
+  #process::after {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(to right, transparent, rgba(201,168,76,0.2), transparent);
+  }
+  .process-header { text-align: center; margin-bottom: 5rem; }
+  .process-timeline {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0; max-width: 1100px; margin: 0 auto;
+    position: relative;
+  }
+  /* Connecting line */
+  .process-timeline::before {
+    content: '';
+    position: absolute; top: 52px; left: 12.5%; right: 12.5%;
+    height: 1px;
+    background: linear-gradient(to right,
+      rgba(201,168,76,0.12), rgba(201,168,76,0.35),
+      rgba(201,168,76,0.35), rgba(201,168,76,0.12));
+  }
+  .process-step {
+    text-align: center; padding: 0 1.5rem;
+    position: relative; z-index: 1;
+  }
+  .step-circle {
+    width: 104px; height: 104px; border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.25);
+    background: var(--umber);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 2rem; font-size: 2.8rem;
+    position: relative; transition: all 0.5s;
+    box-shadow: 0 0 0 0 rgba(201,168,76,0);
+  }
+  .process-step:hover .step-circle {
+    border-color: rgba(201,168,76,0.6);
+    box-shadow: 0 0 0 8px rgba(201,168,76,0.06),
+                0 0 40px rgba(201,168,76,0.12);
+    transform: scale(1.05);
+  }
+  .step-circle::before {
+    content: attr(data-num);
+    position: absolute; top: -8px; right: -8px;
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--saffron); color: white;
+    font-family: 'Cinzel', serif; font-size: 0.55rem;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 600;
+  }
+  .step-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem; font-weight: 500; color: var(--ivory);
+    margin-bottom: 0.7rem; line-height: 1.2;
+  }
+  .step-title em { font-style: italic; color: var(--gold); }
+  .step-desc {
+    font-family: 'EB Garamond', serif; font-size: 0.9rem;
+    font-style: italic; color: var(--cream); opacity: 0.58; line-height: 1.8;
+  }
+  .step-keyword {
+    display: inline-block; margin-top: 0.8rem;
+    font-family: 'Cinzel', serif; font-size: 0.5rem;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--saffron); opacity: 0.75;
+    border-bottom: 1px solid rgba(184,92,26,0.3); padding-bottom: 2px;
+  }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials {
+    background: var(--umber);
+    padding: 7rem 4rem;
+    position: relative; z-index: 1;
+  }
+  .testimonials-header { text-align: center; margin-bottom: 4rem; }
+  .testimonials-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2rem; max-width: 1200px; margin: 0 auto;
+  }
+  .testimonial-card {
+    background: linear-gradient(160deg, var(--umber-light), var(--umber-mid));
+    border: 1px solid rgba(201,168,76,0.12);
+    padding: 2.5rem 2rem;
+    position: relative; overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.16,1,0.3,1);
+  }
+  .testimonial-card::before {
+    content: '"';
+    position: absolute; top: 1rem; right: 1.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 7rem; font-weight: 300; line-height: 1;
+    color: var(--gold); opacity: 0.07; pointer-events: none;
+  }
+  .testimonial-card:hover {
+    border-color: rgba(201,168,76,0.3);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(201,168,76,0.07);
+  }
+  .testimonial-stars {
+    display: flex; gap: 0.3rem; margin-bottom: 1.2rem;
+    font-size: 0.65rem; color: var(--gold);
+  }
+  .testimonial-text {
+    font-family: 'EB Garamond', serif; font-size: 1.05rem;
+    font-style: italic; color: var(--cream); opacity: 0.78;
+    line-height: 1.85; margin-bottom: 1.8rem;
+  }
+  .testimonial-author {
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .author-avatar {
+    width: 42px; height: 42px; border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.25);
+    background: var(--umber-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+  .author-name {
+    font-family: 'Cinzel', serif; font-size: 0.58rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); display: block; margin-bottom: 0.2rem;
+  }
+  .author-loc {
+    font-family: 'EB Garamond', serif; font-size: 0.82rem;
+    font-style: italic; color: var(--cream); opacity: 0.45;
+  }
+  /* Animated gold line reveal */
+  .testimonial-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: linear-gradient(to right, var(--gold-dark), var(--saffron-lt));
+    transition: width 0.7s cubic-bezier(0.16,1,0.3,1);
+  }
+  .testimonial-card:hover::after { width: 100%; }
+
+  /* ── MARQUEE WORDS (vertical breathing row) ── */
+  .sacred-words-strip {
+    background: var(--umber);
+    padding: 3.5rem 4rem;
+    position: relative; z-index: 1;
+    border-top: 1px solid rgba(201,168,76,0.08);
+    overflow: hidden;
+  }
+  .sacred-words-inner {
+    display: flex; align-items: center; justify-content: center;
+    gap: 3rem; flex-wrap: wrap; max-width: 1100px; margin: 0 auto;
+  }
+  .sacred-word {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.8rem); font-weight: 300; font-style: italic;
+    color: var(--ivory); opacity: 0.18; cursor: default;
+    transition: opacity 0.4s, color 0.4s, transform 0.4s;
+    user-select: none; letter-spacing: 0.06em;
+    position: relative;
+  }
+  .sacred-word:hover { opacity: 0.9; color: var(--gold); transform: scale(1.08); }
+  .sacred-word.lit { opacity: 0.7; color: var(--gold-light); }
+  .sacred-word-sep {
+    color: var(--gold); opacity: 0.25; font-size: 0.4rem;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    #philosophy { padding: 5rem 1.5rem; }
+    .philosophy-pillars { grid-template-columns: 1fr; gap: 1.5rem; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-card { border-bottom: 1px solid rgba(201,168,76,0.1); }
+    .stat-card:nth-child(2) { border-right: none; }
+    .process-timeline { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+    .process-timeline::before { display: none; }
+    .testimonials-grid { grid-template-columns: 1fr; max-width: 500px; }
+    #stats, #process, #testimonials { padding: 5rem 1.5rem; }
+    .sacred-words-inner { gap: 1.5rem; }
+  }
+  @media (max-width: 600px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-timeline { grid-template-columns: 1fr; }
+    .philosophy-quote { font-size: 1.5rem; }
+  }
+
+  /* --------------------------------------
+     HERO TEXT � BULLETPROOF VISIBILITY FIX
+     -------------------------------------- */
+  .grain-overlay  { z-index: 9 !important; pointer-events: none !important; mix-blend-mode: multiply !important; }
+  .hero-bg        { z-index: 1 !important; }
+  .hero-rays      { z-index: 2 !important; pointer-events: none !important; }
+  .hero-mandala   { z-index: 2 !important; pointer-events: none !important; }
+  #hero-canvas    { z-index: 2 !important; pointer-events: none !important; }
+  .hero-aura      { z-index: 2 !important; pointer-events: none !important; }
+  .hero-petals    { z-index: 2 !important; pointer-events: none !important; }
+  .smoke-container{ z-index: 2 !important; pointer-events: none !important; }
+  .hero-frame     { z-index: 3 !important; pointer-events: none !important; }
+  .hero-om        { z-index: 4 !important; }
+  .hero-diya      { z-index: 4 !important; }
+  .scroll-hint    { z-index: 5 !important; }
+  #hero { isolation: isolate !important; overflow: visible !important; }
+  .hero-content {
+    position: relative !important;
+    z-index: 9999 !important;
+    opacity: 1 !important;
+    pointer-events: all !important;
+    isolation: isolate !important;
+  }
+  .hero-content > * {
+    position: relative !important;
+    z-index: 9999 !important;
+  }
+  .hero-eyebrow  { opacity: 0 !important; animation: fade-up 1.2s var(--transition) 0.3s forwards !important; }
+  .hero-title    { opacity: 0 !important; animation: fade-up 1.4s var(--transition) 0.6s forwards, shimmer-slide 5.5s linear 2.2s infinite !important; }
+  .hero-subtitle { opacity: 0 !important; animation: fade-up 1.4s var(--transition) 0.9s forwards !important; }
+  .hero-pills    { opacity: 0 !important; animation: fade-up 1.2s var(--transition) 1.0s forwards !important; }
+  .hero-tagline-strip { opacity: 0 !important; animation: fade-up 1.2s var(--transition) 1.3s forwards !important; }
+  .hero-cta-group{ opacity: 0 !important; animation: fade-up 1.2s var(--transition) 1.5s forwards !important; }
+
+  /* ══════════════════════════════════════════
+   THE ACTUAL FIX — HERO TEXT FULLY VISIBLE
+   ══════════════════════════════════════════ */
+
+/* 1. grain-overlay was z-index:9990 — drop it behind everything */
+.grain-overlay {
+  z-index: 9 !important;
+  pointer-events: none !important;
+  mix-blend-mode: overlay !important;
+}
+
+/* 2. hero-content above all layers */
+.hero-content {
+  position: relative !important;
+  z-index: 9999 !important;
+  opacity: 1 !important;
+}
+
+/* 3. THE REAL FIX: hero-title uses -webkit-text-fill-color:transparent
+   Animating opacity on such elements breaks visibility in Chrome/Edge.
+   Use a wrapper approach — animate a parent span, not the h1 itself */
+.hero-title {
+  opacity: 1 !important;                     /* always visible */
+  animation: shimmer-slide 5.5s linear 2.2s infinite !important; /* only shimmer */
+}
+.hero-title em {
+  opacity: 1 !important;
+}
+
+/* 4. Eyebrow — was competing with duplicate rule, force it */
+.hero-eyebrow {
+  opacity: 0;
+  animation: fade-up 1.2s var(--transition) 0.3s forwards !important;
+  position: relative !important;
+  z-index: 9999 !important;
+  display: inline-block !important;
+}
+
+/* 5. Subtitle */
+.hero-subtitle {
+  opacity: 0 !important;
+  animation: fade-up 1.4s var(--transition) 0.9s forwards !important;
+  position: relative !important;
+  z-index: 9999 !important;
+}
+
+/* 6. Pills & strip */
+.hero-pills {
+  opacity: 0 !important;
+  animation: fade-up 1.2s var(--transition) 1.0s forwards !important;
+  position: relative !important;
+  z-index: 9999 !important;
+}
+.hero-tagline-strip {
+  opacity: 0 !important;
+  animation: fade-up 1.2s var(--transition) 1.3s forwards !important;
+  position: relative !important;
+  z-index: 9999 !important;
+}
+
+/* 7. CTA */
+.hero-cta-group {
+  opacity: 0 !important;
+  animation: fade-up 1.2s var(--transition) 1.5s forwards !important;
+  position: relative !important;
+  z-index: 9999 !important;
+}
+
+/* 8. Lock all BG layers below */
+.hero-bg        { z-index: 1 !important; }
+.hero-rays,
+.hero-mandala,
+#hero-canvas,
+.hero-aura,
+.hero-petals,
+.smoke-container { z-index: 2 !important; pointer-events: none !important; }
+.hero-frame      { z-index: 3 !important; pointer-events: none !important; }
+
+/* 9. Fade-up keyframe — re-declare here so it's always available */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* == HERO TEXT FINAL FIX == */
+.hero-title { opacity: 1 !important; animation: shimmer-slide 5.5s linear 2.2s infinite !important; }
+.hero-title em { opacity: 1 !important; }
+.hero-eyebrow, .hero-subtitle, .hero-pills, .hero-tagline-strip, .hero-cta-group { opacity: 1 !important; transform: translateY(0) !important; animation: none !important; visibility: visible !important; }
+.hero-eyebrow  { opacity: 0 !important; animation: fu 1.2s ease 0.3s both !important; }
+.hero-subtitle { opacity: 0 !important; animation: fu 1.4s ease 0.9s both !important; }
+.hero-pills    { opacity: 0 !important; animation: fu 1.2s ease 1.0s both !important; }
+.hero-tagline-strip { opacity: 0 !important; animation: fu 1.2s ease 1.3s both !important; }
+.hero-cta-group { opacity: 0 !important; animation: fu 1.2s ease 1.5s both !important; }
+@keyframes fu { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.grain-overlay { z-index: 9 !important; pointer-events: none !important; mix-blend-mode: overlay !important; }
+
+/* == HERO TEXT FINAL FIX == */
+.hero-title { opacity: 1 !important; animation: shimmer-slide 5.5s linear 2.2s infinite !important; }
+.hero-title em { opacity: 1 !important; }
+.hero-eyebrow, .hero-subtitle, .hero-pills, .hero-tagline-strip, .hero-cta-group { opacity: 1 !important; transform: translateY(0) !important; animation: none !important; visibility: visible !important; }
+.hero-eyebrow  { opacity: 0 !important; animation: fu 1.2s ease 0.3s both !important; }
+.hero-subtitle { opacity: 0 !important; animation: fu 1.4s ease 0.9s both !important; }
+.hero-pills    { opacity: 0 !important; animation: fu 1.2s ease 1.0s both !important; }
+.hero-tagline-strip { opacity: 0 !important; animation: fu 1.2s ease 1.3s both !important; }
+.hero-cta-group { opacity: 0 !important; animation: fu 1.2s ease 1.5s both !important; }
+@keyframes fu { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.grain-overlay { z-index: 9 !important; pointer-events: none !important; mix-blend-mode: overlay !important; }
+
+/* == NUCLEAR HERO FIX == */
+.hero-eyebrow, .hero-title, .hero-title em, .hero-subtitle, .hero-pills, .hero-pill, .hero-pill-text, .hero-pill-text em, .hero-tagline-strip, .hero-tag-item, .hero-tag-sep, .hero-cta-group, .btn-primary, .btn-ghost { opacity: 1 !important; transform: none !important; animation: none !important; visibility: visible !important; -webkit-text-fill-color: unset; color: var(--cream); }
+.hero-title { font-family: 'Cormorant Garamond', serif !important; font-size: clamp(3.5rem, 8vw, 7rem) !important; color: var(--ivory) !important; -webkit-text-fill-color: var(--ivory) !important; background: none !important; }
+.hero-title em { color: var(--gold) !important; -webkit-text-fill-color: var(--gold) !important; background: none !important; font-style: italic !important; }
+.hero-eyebrow { color: var(--gold) !important; display: inline-block !important; }
+.hero-subtitle { color: var(--cream) !important; }
+.hero-pill-text { color: var(--cream) !important; }
+.hero-pill-text em { color: var(--gold) !important; }
+.grain-overlay { z-index: 9 !important; pointer-events: none !important; }
+
+/* == HERO LAYOUT RESTORE == */
+.hero-content {
+  position: relative !important; z-index: 9999 !important;
+  display: flex !important; flex-direction: column !important;
+  align-items: center !important; text-align: center !important;
+  gap: 0 !important; max-width: 860px !important;
+  padding: 0 2rem !important;
+}
+.hero-eyebrow {
+  font-family: 'Cinzel', serif !important; font-size: 0.58rem !important;
+  letter-spacing: 0.55em !important; color: var(--gold) !important;
+  display: inline-block !important; margin-bottom: 1.8rem !important;
+  padding: 0.35rem 1.6rem !important;
+  background: rgba(201,168,76,0.07) !important;
+  border: 1px solid rgba(201,168,76,0.22) !important;
+  backdrop-filter: blur(4px) !important;
+}
+.hero-title {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: clamp(3.5rem, 8vw, 7rem) !important;
+  font-weight: 300 !important; line-height: 0.95 !important;
+  color: var(--ivory) !important;
+  -webkit-text-fill-color: var(--ivory) !important;
+  background: none !important;
+  margin-bottom: 1.8rem !important;
+  letter-spacing: -0.01em !important;
+}
+.hero-title em {
+  display: block !important;
+  color: var(--gold) !important;
+  -webkit-text-fill-color: var(--gold) !important;
+  background: none !important;
+  font-style: italic !important;
+  font-size: 90% !important;
+}
+.hero-subtitle {
+  font-family: 'EB Garamond', serif !important;
+  font-size: 1.1rem !important; font-style: italic !important;
+  color: var(--cream) !important; opacity: 0.8 !important;
+  max-width: 520px !important; line-height: 1.75 !important;
+  margin-bottom: 2.5rem !important;
+}
+.hero-pills {
+  display: flex !important; justify-content: center !important;
+  gap: 0.8rem !important; flex-wrap: wrap !important;
+  margin-bottom: 2rem !important; max-width: 700px !important;
+}
+.hero-pill {
+  display: flex !important; align-items: center !important;
+  gap: 0.5rem !important;
+  background: rgba(201,168,76,0.07) !important;
+  border: 1px solid rgba(201,168,76,0.2) !important;
+  padding: 0.6rem 1.2rem !important;
+  backdrop-filter: blur(6px) !important;
+}
+.hero-pill-icon { font-size: 1rem !important; line-height: 1 !important; }
+.hero-pill-text {
+  font-family: 'Cinzel', serif !important;
+  font-size: 0.5rem !important; letter-spacing: 0.14em !important;
+  text-transform: uppercase !important; color: var(--cream) !important;
+  opacity: 1 !important; line-height: 1.6 !important;
+  text-align: left !important;
+}
+.hero-pill-text em {
+  font-style: italic !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 0.82rem !important; color: var(--gold) !important;
+  display: block !important; letter-spacing: 0.06em !important;
+}
+.hero-tagline-strip {
+  display: flex !important; align-items: center !important;
+  justify-content: center !important; flex-wrap: wrap !important;
+  gap: 0.8rem !important; margin-bottom: 2.5rem !important;
+  max-width: 680px !important;
+  border-top: 1px solid rgba(201,168,76,0.12) !important;
+  border-bottom: 1px solid rgba(201,168,76,0.12) !important;
+  padding: 0.9rem 1rem !important;
+}
+.hero-tag-item {
+  font-family: 'Cinzel', serif !important;
+  font-size: 0.52rem !important; letter-spacing: 0.28em !important;
+  text-transform: uppercase !important;
+  color: var(--cream) !important; opacity: 0.7 !important;
+}
+.hero-tag-item:hover { opacity: 1 !important; color: var(--gold) !important; }
+.hero-tag-sep { color: var(--gold) !important; opacity: 0.4 !important; font-size: 0.4rem !important; }
+.hero-cta-group {
+  display: flex !important; gap: 1.2rem !important;
+  justify-content: center !important; flex-wrap: wrap !important;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark)) !important;
+  color: var(--umber) !important; padding: 0.9rem 2.8rem !important;
+  font-family: 'Cinzel', serif !important; font-size: 0.65rem !important;
+  letter-spacing: 0.25em !important; text-transform: uppercase !important;
+  border: none !important; cursor: pointer !important; font-weight: 600 !important;
+}
+.btn-ghost {
+  background: transparent !important; color: var(--cream) !important;
+  padding: 0.9rem 2.8rem !important; font-family: 'Cinzel', serif !important;
+  font-size: 0.65rem !important; letter-spacing: 0.25em !important;
+  text-transform: uppercase !important;
+  border: 1px solid rgba(232,213,163,0.4) !important; cursor: pointer !important;
+}
+
+/* ══════════════════════════════════════
+   ABOUT SECTION
+   ══════════════════════════════════════ */
+#about {
+  background: var(--umber-mid);
+  padding: 7rem 4rem;
+  position: relative; z-index: 1; overflow: hidden;
+}
+.about-bg-mandala {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 70vmin; height: 70vmin;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cg fill='none' stroke='%23C9A84C' stroke-width='0.4' opacity='0.06'%3E%3Ccircle cx='200' cy='200' r='190'/%3E%3Ccircle cx='200' cy='200' r='150'/%3E%3Ccircle cx='200' cy='200' r='110'/%3E%3Ccircle cx='200' cy='200' r='70'/%3E%3Cline x1='200' y1='10' x2='200' y2='390'/%3E%3Cline x1='10' y1='200' x2='390' y2='200'/%3E%3Cline x1='55' y1='55' x2='345' y2='345'/%3E%3Cline x1='345' y1='55' x2='55' y2='345'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: contain; background-repeat: no-repeat;
+  pointer-events: none; z-index: 0;
+  animation: mandala-spin 90s linear infinite;
+}
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1.6fr;
+  gap: 5rem; max-width: 1100px; margin: 0 auto 5rem;
+  align-items: center; position: relative; z-index: 1;
+}
+.about-arch {
+  width: 260px; height: 360px;
+  border-radius: 130px 130px 0 0;
+  background: linear-gradient(160deg, rgba(61,34,16,0.9), rgba(28,15,7,0.95));
+  border: 1px solid rgba(201,168,76,0.25);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto; position: relative; overflow: hidden;
+}
+.about-arch::before {
+  content: '';
+  position: absolute; inset: -2px;
+  border-radius: 132px 132px 0 0;
+  background: linear-gradient(to bottom, rgba(201,168,76,0.3), transparent);
+  z-index: 0;
+}
+.about-arch-inner { position: relative; z-index: 1; }
+.about-arch-glow {
+  position: absolute; bottom: -20px; left: 50%;
+  transform: translateX(-50%);
+  width: 160px; height: 80px;
+  background: radial-gradient(ellipse, rgba(201,168,76,0.15), transparent 70%);
+  pointer-events: none;
+}
+.about-tag {
+  font-family: 'Cinzel', serif; font-size: 0.55rem;
+  letter-spacing: 0.4em; text-transform: uppercase;
+  color: var(--saffron); display: block; margin-bottom: 1.2rem;
+}
+.about-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 300;
+  color: var(--ivory); line-height: 1.2; margin-bottom: 1.8rem;
+}
+.about-heading em { font-style: italic; color: var(--gold); }
+.about-para {
+  font-family: 'EB Garamond', serif; font-size: 1rem;
+  font-style: italic; color: var(--cream); opacity: 0.72;
+  line-height: 1.9; margin-bottom: 1.2rem;
+}
+.about-values {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1.2rem; margin-top: 2rem;
+}
+.about-value {
+  display: flex; align-items: flex-start; gap: 0.8rem;
+  padding: 1rem 1.2rem;
+  background: rgba(28,15,7,0.4);
+  border: 1px solid rgba(201,168,76,0.1);
+  transition: border-color 0.4s, transform 0.4s;
+}
+.about-value:hover { border-color: rgba(201,168,76,0.35); transform: translateY(-3px); }
+.about-value-icon { font-size: 1.3rem; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+.about-value-title {
+  font-family: 'Cinzel', serif; font-size: 0.55rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 0.3rem;
+}
+.about-value-desc {
+  font-family: 'EB Garamond', serif; font-size: 0.82rem;
+  font-style: italic; color: var(--cream); opacity: 0.5;
+}
+.about-quote-wrap {
+  max-width: 800px; margin: 0 auto;
+  position: relative; z-index: 1;
+}
+.about-quote {
+  text-align: center; padding: 3rem 3.5rem;
+  border: 1px solid rgba(201,168,76,0.15);
+  background: rgba(28,15,7,0.35);
+  position: relative;
+}
+.about-quote::before {
+  content: '"';
+  position: absolute; top: -1.5rem; left: 2.5rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 8rem; color: var(--gold); opacity: 0.12;
+  line-height: 1; pointer-events: none;
+}
+.about-quote-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem); font-weight: 300;
+  font-style: italic; color: var(--ivory); line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+.about-quote-attr {
+  font-family: 'Cinzel', serif; font-size: 0.55rem;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--gold); opacity: 0.6;
+}
+
+/* ══════════════════════════════════════
+   CONTACT SECTION
+   ══════════════════════════════════════ */
+#contact {
+  background: var(--umber);
+  padding: 7rem 4rem;
+  position: relative; z-index: 1;
+}
+#contact::before {
+  content: '';
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 300px; height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1.5fr;
+  gap: 5rem; max-width: 1100px; margin: 0 auto;
+  align-items: start;
+}
+.contact-info { display: flex; flex-direction: column; gap: 0; }
+.contact-info-card {
+  display: flex; align-items: flex-start; gap: 1.2rem;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid rgba(201,168,76,0.08);
+  transition: padding-left 0.4s;
+}
+.contact-info-card:hover { padding-left: 0.5rem; }
+.contact-info-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+.contact-info-label {
+  font-family: 'Cinzel', serif; font-size: 0.52rem;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--saffron); display: block; margin-bottom: 0.3rem;
+}
+.contact-info-val {
+  font-family: 'EB Garamond', serif; font-size: 1rem;
+  font-style: italic; color: var(--cream); opacity: 0.7;
+  line-height: 1.6;
+}
+.contact-socials { margin-top: 2rem; }
+.contact-social-label {
+  font-family: 'Cinzel', serif; font-size: 0.52rem;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--gold); opacity: 0.6; display: block; margin-bottom: 0.9rem;
+}
+.contact-social-row { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+.contact-social-btn {
+  font-family: 'Cinzel', serif; font-size: 0.52rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--cream); text-decoration: none;
+  padding: 0.45rem 1rem;
+  border: 1px solid rgba(201,168,76,0.2);
+  transition: all 0.4s;
+}
+.contact-social-btn:hover {
+  border-color: var(--gold); color: var(--gold);
+  background: rgba(201,168,76,0.07);
+}
+
+/* Contact Form */
+.contact-form-wrap {
+  background: linear-gradient(160deg, var(--umber-light), var(--umber-mid));
+  border: 1px solid rgba(201,168,76,0.15);
+  padding: 2.5rem 2.5rem;
+}
+.contact-form { display: flex; flex-direction: column; gap: 1.4rem; }
+.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.cf-group { display: flex; flex-direction: column; gap: 0.4rem; }
+.cf-label {
+  font-family: 'Cinzel', serif; font-size: 0.52rem;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold); opacity: 0.7;
+}
+.cf-input {
+  background: rgba(28,15,7,0.5);
+  border: 1px solid rgba(201,168,76,0.18);
+  color: var(--cream); padding: 0.75rem 1rem;
+  font-family: 'EB Garamond', serif; font-size: 0.95rem;
+  font-style: italic; outline: none;
+  transition: border-color 0.4s, background 0.4s;
+  width: 100%;
+}
+.cf-input:focus {
+  border-color: rgba(201,168,76,0.55);
+  background: rgba(28,15,7,0.7);
+}
+.cf-input::placeholder { color: rgba(232,213,163,0.25); }
+.cf-select { cursor: pointer; appearance: none; }
+.cf-textarea { resize: vertical; min-height: 130px; }
+.cf-submit {
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: var(--umber); padding: 1rem 2rem;
+  font-family: 'Cinzel', serif; font-size: 0.65rem;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  border: none; cursor: pointer; font-weight: 600;
+  display: flex; align-items: center; justify-content: center; gap: 0.8rem;
+  transition: all 0.5s; position: relative; overflow: hidden;
+}
+.cf-submit::after {
+  content: '';
+  position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+.cf-submit:hover::after { left: 100%; }
+.cf-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(201,168,76,0.4);
+}
+.cf-submit-icon { font-size: 0.6rem; opacity: 0.7; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .about-arch { width: 200px; height: 280px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  #about, #contact { padding: 5rem 1.5rem; }
+  .cf-row { grid-template-columns: 1fr; }
+  .about-values { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+<div class="sacred-cursor" id="sacred-cursor"></div>
+<div class="sacred-cursor-ring" id="sacred-cursor-ring"></div>
+
+<!-- ── NAVBAR ── -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    Divya Aroha
+    <span>Sacred Offerings · Est. 2024</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#products">Collections</a></li>
+    <li><a href="#ritual">Our Ritual</a></li>
+    <li><a href="#products">Offerings</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="nav-cart" onclick="openCart()">
+      🪔 Cart
+      <span class="cart-count" id="cart-count">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+
+  <!-- GRAIN OVERLAY -->
+  <div class="grain-overlay"></div>
+
+  <!-- Sacred frame corners -->
+  <div class="hero-frame">
+    <div class="hero-frame-tl"></div>
+    <div class="hero-frame-br"></div>
+  </div>
+
+  <!-- Crepuscular rays -->
+  <div class="hero-rays"></div>
+
+  <!-- Large mandala -->
+  <div class="hero-mandala">
+    <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+      <g stroke="#C9A84C" stroke-width="0.7" opacity="0.9">
+        <circle cx="250" cy="250" r="240"/><circle cx="250" cy="250" r="210"/>
+        <circle cx="250" cy="250" r="180"/><circle cx="250" cy="250" r="150"/>
+        <circle cx="250" cy="250" r="120"/><circle cx="250" cy="250" r="90"/>
+        <circle cx="250" cy="250" r="60"/><circle cx="250" cy="250" r="30"/>
+        <circle cx="250" cy="250" r="10"/>
+        <line x1="250" y1="10"  x2="250" y2="490"/>
+        <line x1="10"  y1="250" x2="490" y2="250"/>
+        <line x1="72"  y1="72"  x2="428" y2="428"/>
+        <line x1="428" y1="72"  x2="72"  y2="428"/>
+        <line x1="156" y1="10"  x2="344" y2="490"/>
+        <line x1="344" y1="10"  x2="156" y2="490"/>
+        <line x1="10"  y1="156" x2="490" y2="344"/>
+        <line x1="10"  y1="344" x2="490" y2="156"/>
+        <line x1="113" y1="35"  x2="387" y2="465"/>
+        <line x1="387" y1="35"  x2="113" y2="465"/>
+        <line x1="35"  y1="113" x2="465" y2="387"/>
+        <line x1="35"  y1="387" x2="465" y2="113"/>
+        <polygon points="250,20 270,220 470,250 270,280 250,480 230,280 30,250 230,220"/>
+        <polygon points="250,80 264,200 380,156 306,254 380,344 264,300 250,420 236,300 120,344 194,254 120,156 236,200"/>
+        <polygon points="250,100 256,163 295,110 284,172 337,134 309,191 370,171 324,217 390,216 330,248 390,282 323,282 369,328 308,308 336,365 285,327 295,390 256,337 250,400 244,337 205,390 216,327 165,365 193,308 131,328 177,282 110,282 170,248 110,216 176,216 132,170 191,191 163,134 216,172 205,110 244,163"/>
+        <g stroke-width="0.5">
+          <ellipse cx="250" cy="175" rx="12" ry="25" transform="rotate(0 250 250)"/>
+          <ellipse cx="250" cy="175" rx="12" ry="25" transform="rotate(22.5 250 250)"/>
+          <ellipse cx="250" cy="175" rx="12" ry="25" transform="rotate(45 250 250)"/>
+          <ellipse cx="250" cy="175" rx="12" ry="25" transform="rotate(67.5 250 250)"/>
+          <ellipse cx="250" cy="175" rx="12" ry="25" transform="rotate(90 250 250)"/>
+          <ellipse cx="250" cy="175" rx="12" ry="25" transform="rotate(112.5 250 250)"/>
+          <ellipse cx="250" cy="175" rx="12" ry="25" transform="rotate(135 250 250)"/>
+          <ellipse cx="250" cy="175" rx="12" ry="25" transform="rotate(157.5 250 250)"/>
+          <ellipse cx="250" cy="175" rx="12" ry="25" transform="rotate(180 250 250)"/>
+          <ellipse cx="250" cy="175" rx="12" ry="25" transform="rotate(202.5 250 250)"/>
+          <ellipse cx="250" cy="175" rx="12" ry="25" transform="rotate(225 250 250)"/>
+          <ellipse cx="250" cy="175" rx="12" ry="25" transform="rotate(247.5 250 250)"/>
+          <ellipse cx="250" cy="175" rx="12" ry="25" transform="rotate(270 250 250)"/>
+          <ellipse cx="250" cy="175" rx="12" ry="25" transform="rotate(292.5 250 250)"/>
+          <ellipse cx="250" cy="175" rx="12" ry="25" transform="rotate(315 250 250)"/>
+          <ellipse cx="250" cy="175" rx="12" ry="25" transform="rotate(337.5 250 250)"/>
+        </g>
+        <g fill="#C9A84C" stroke="none">
+          <circle cx="250" cy="130" r="2.5"/>
+          <circle cx="335" cy="165" r="2.5" transform="rotate(45 250 250)"/>
+          <circle cx="335" cy="165" r="2.5" transform="rotate(90 250 250)"/>
+          <circle cx="335" cy="165" r="2.5" transform="rotate(135 250 250)"/>
+          <circle cx="335" cy="165" r="2.5" transform="rotate(180 250 250)"/>
+          <circle cx="335" cy="165" r="2.5" transform="rotate(225 250 250)"/>
+          <circle cx="335" cy="165" r="2.5" transform="rotate(270 250 250)"/>
+          <circle cx="335" cy="165" r="2.5" transform="rotate(315 250 250)"/>
+        </g>
+        <polygon points="250,50 260,240 450,250 260,260 250,450 240,260 50,250 240,240" stroke-width="0.4"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Ember particle canvas -->
+  <canvas id="hero-canvas"></canvas>
+
+  <!-- Center aura glow -->
+  <div class="hero-aura"></div>
+
+  <!-- Floating rose petals -->
+  <div class="hero-petals" id="hero-petals"></div>
+
+  <!-- Om symbol -->
+  <div class="hero-om">ॐ</div>
+
+  <!-- Diya flame at bottom -->
+  <div class="hero-diya">
+    <div class="diya-flame"></div>
+    <div class="diya-base"></div>
+  </div>
+
+  <div class="hero-bg"></div>
+  <div class="smoke-container">
+    <div class="smoke-particle"></div>
+    <div class="smoke-particle"></div>
+    <div class="smoke-particle"></div>
+    <div class="smoke-particle"></div>
+    <div class="smoke-particle"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       HERO CONTENT — sits above all layers
+       ═══════════════════════════════════════ -->
+  <div class="hero-content">
+
+    <!-- Vedic origin tag -->
+    <span class="hero-eyebrow">✦ Pure · Handcrafted · Temple-Grade ✦</span>
+
+    <!-- Main headline -->
+    <h1 class="hero-title">
+      Sacred Aromas<br><em>for the Divine</em>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="hero-subtitle">
+      Ancient fragrances distilled from nature's finest gifts — incense, dhoop,
+      and sacred offerings crafted to elevate every moment of worship.
+    </p>
+
+    <!-- ── Product Highlight Pills ── -->
+    <div class="hero-pills">
+      <div class="hero-pill">
+        <span class="hero-pill-icon">🌿</span>
+        <span class="hero-pill-text">Mysore Chandan<br><em>Agarbatti</em></span>
+      </div>
+      <div class="hero-pill">
+        <span class="hero-pill-icon">🔥</span>
+        <span class="hero-pill-text">Guggul<br><em>Dhoop Cones</em></span>
+      </div>
+      <div class="hero-pill">
+        <span class="hero-pill-icon">✨</span>
+        <span class="hero-pill-text">Oud & Amber<br><em>Sacred Oil</em></span>
+      </div>
+      <div class="hero-pill">
+        <span class="hero-pill-icon">🎁</span>
+        <span class="hero-pill-text">Luxury<br><em>Gift Box</em></span>
+      </div>
+    </div>
+
+    <!-- ── Trust tagline strip ── -->
+    <div class="hero-tagline-strip">
+      <span class="hero-tag-item">100% Natural</span>
+      <span class="hero-tag-sep">✦</span>
+      <span class="hero-tag-item">Zero Synthetics</span>
+      <span class="hero-tag-sep">✦</span>
+      <span class="hero-tag-item">7 Generations of Craft</span>
+      <span class="hero-tag-sep">✦</span>
+      <span class="hero-tag-item">Free Shipping ₹499+</span>
+    </div>
+
+    <!-- CTA Buttons -->
+    <div class="hero-cta-group">
+      <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+        Explore the Collection
+      </button>
+      <button class="btn-ghost" onclick="document.getElementById('ritual').scrollIntoView({behavior:'smooth'})">
+        Our Sacred Ritual
+      </button>
+    </div>
+
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <p>Scroll to Begin</p>
+  </div>
+</section>
+
+<!-- ── TRUST STRIP ── -->
+<div class="trust-strip">
+  <div class="trust-inner" style="overflow:hidden;"><div id="trust-inner-wrap">
+    <div class="trust-item"><div class="trust-dot"></div> Handcrafted with Pure Ingredients</div>
+    <div class="trust-item"><div class="trust-dot"></div> Temple-Grade Quality Assured</div>
+    <div class="trust-item"><div class="trust-dot"></div> Ancient Vedic Formulations</div>
+    <div class="trust-item"><div class="trust-dot"></div> Free Shipping over ₹499</div>
+    <div class="trust-item"><div class="trust-dot"></div> Secure Razorpay Payments</div>
+    </div><!-- /trust-inner-wrap first -->
+  </div><!-- /trust-inner -->
+</div>
+
+<!-- ── MANTRA MARQUEE ── -->
+<div class="mantra-marquee">
+  <div class="mantra-track"><span class="mantra-word">ॐ नमः शिवाय</span><span class="mantra-word">Purity of Soul</span><span class="mantra-word">Agarbatti · Dhoop · Sambrani</span><span class="mantra-word">सत् चित् आनन्द</span><span class="mantra-word">Sacred Smoke</span><span class="mantra-word">ॐ शान्तिः</span><span class="mantra-word">Temple-Grade</span><span class="mantra-word">Divine Fragrance</span><span class="mantra-word">ॐ मणिपद्मे हूँ</span><span class="mantra-word">Ancient Vedic Craft</span><span class="mantra-word">धूप · चन्दन · गुलाब</span><span class="mantra-word">Sacred Offerings</span><span class="mantra-word">ॐ तत् सत्</span><span class="mantra-word">ॐ नमः शिवाय</span><span class="mantra-word">Purity of Soul</span><span class="mantra-word">Agarbatti · Dhoop · Sambrani</span><span class="mantra-word">सत् चित् आनन्द</span><span class="mantra-word">Sacred Smoke</span><span class="mantra-word">ॐ शान्तिः</span><span class="mantra-word">Temple-Grade</span><span class="mantra-word">Divine Fragrance</span><span class="mantra-word">ॐ मणिपद्मे हूँ</span><span class="mantra-word">Ancient Vedic Craft</span><span class="mantra-word">धूप · चन्दन · गुलाब</span><span class="mantra-word">Sacred Offerings</span><span class="mantra-word">ॐ तत् सत्</span><span class="mantra-word">ॐ नमः शिवाय</span><span class="mantra-word">Purity of Soul</span><span class="mantra-word">Agarbatti · Dhoop · Sambrani</span><span class="mantra-word">सत् चित् आनन्द</span><span class="mantra-word">Sacred Smoke</span><span class="mantra-word">ॐ शान्तिः</span><span class="mantra-word">Temple-Grade</span><span class="mantra-word">Divine Fragrance</span><span class="mantra-word">ॐ मणिपद्मे हूँ</span><span class="mantra-word">Ancient Vedic Craft</span><span class="mantra-word">धूप · चन्दन · गुलाब</span><span class="mantra-word">Sacred Offerings</span><span class="mantra-word">ॐ तत् सत्</span></div>
+</div>
+<div class="mantra-marquee" style="padding: 0.9rem 0; border-top: none;">
+  <div class="mantra-track reverse"><span class="mantra-word">ॐ तत् सत्</span><span class="mantra-word">Sacred Offerings</span><span class="mantra-word">धूप · चन्दन · गुलाब</span><span class="mantra-word">Ancient Vedic Craft</span><span class="mantra-word">ॐ मणिपद्मे हूँ</span><span class="mantra-word">Divine Fragrance</span><span class="mantra-word">Temple-Grade</span><span class="mantra-word">ॐ शान्तिः</span><span class="mantra-word">Sacred Smoke</span><span class="mantra-word">सत् चित् आनन्द</span><span class="mantra-word">Agarbatti · Dhoop · Sambrani</span><span class="mantra-word">Purity of Soul</span><span class="mantra-word">ॐ नमः शिवाय</span><span class="mantra-word">ॐ तत् सत्</span><span class="mantra-word">Sacred Offerings</span><span class="mantra-word">धूप · चन्दन · गुलाब</span><span class="mantra-word">Ancient Vedic Craft</span><span class="mantra-word">ॐ मणिपद्मे हूँ</span><span class="mantra-word">Divine Fragrance</span><span class="mantra-word">Temple-Grade</span><span class="mantra-word">ॐ शान्तिः</span><span class="mantra-word">Sacred Smoke</span><span class="mantra-word">सत् चित् आनन्द</span><span class="mantra-word">Agarbatti · Dhoop · Sambrani</span><span class="mantra-word">Purity of Soul</span><span class="mantra-word">ॐ नमः शिवाय</span><span class="mantra-word">ॐ तत् सत्</span><span class="mantra-word">Sacred Offerings</span><span class="mantra-word">धूप · चन्दन · गुलाब</span><span class="mantra-word">Ancient Vedic Craft</span><span class="mantra-word">ॐ मणिपद्मे हूँ</span><span class="mantra-word">Divine Fragrance</span><span class="mantra-word">Temple-Grade</span><span class="mantra-word">ॐ शान्तिः</span><span class="mantra-word">Sacred Smoke</span><span class="mantra-word">सत् चित् आनन्द</span><span class="mantra-word">Agarbatti · Dhoop · Sambrani</span><span class="mantra-word">Purity of Soul</span><span class="mantra-word">ॐ नमः शिवाय</span></div>
+</div>
+
+<!-- ── PHILOSOPHY SECTION ── -->
+<section id="philosophy">
+  <div class="philosophy-inner">
+    <span class="philosophy-tag reveal">✦ The Sacred Way ✦</span>
+    <p class="philosophy-quote reveal" id="philosophy-quote">
+      <span id="typed-text"></span><span class="typed-cursor"></span>
+    </p>
+    <span class="philosophy-attr reveal">— Ancient Vedic Sutra</span>
+
+    <div class="philosophy-pillars">
+      <div class="pillar reveal reveal-delay-1">
+        <span class="pillar-num">01</span>
+        <span class="pillar-title">✦ Source</span>
+        <p>We journey to the sacred forests of Mysuru, the ghats of Varanasi, and the Himalayan foothills of Rishikesh — selecting only the finest resins, woods, and botanicals that carry the vibration of the divine.</p>
+      </div>
+      <div class="pillar reveal reveal-delay-2">
+        <span class="pillar-num">02</span>
+        <span class="pillar-title">✦ Craft</span>
+        <p>Each incense stick is handrolled by master artisans who have inherited the sacred craft across seven generations. No machines. No shortcuts. Just hands, prayer, and patience refined over centuries.</p>
+      </div>
+      <div class="pillar reveal reveal-delay-3">
+        <span class="pillar-num">03</span>
+        <span class="pillar-title">✦ Bless</span>
+        <p>Before any offering leaves our atelier, it rests in our prayer room for forty-eight hours — surrounded by the chanting of Vedic mantras, consecrating every product with sacred intention and divine grace.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS SECTION ── -->
+<section id="stats">
+  <span class="stats-eyebrow reveal">✦ The Numbers Speak ✦</span>
+  <div class="stats-grid">
+    <div class="stat-card reveal">
+      <span class="stat-number"><span class="counter" data-target="14000" data-suffix="+">0</span></span>
+      <span class="stat-label">Devotees Served</span>
+      <p class="stat-desc">Across India & beyond the sacred borders</p>
+      <div class="stat-divider"></div>
+    </div>
+    <div class="stat-card reveal reveal-delay-1">
+      <span class="stat-number"><span class="counter" data-target="60" data-suffix="+">0</span></span>
+      <span class="stat-label">Sacred Products</span>
+      <p class="stat-desc">Incense, dhoop, oils & ritual offerings</p>
+      <div class="stat-divider"></div>
+    </div>
+    <div class="stat-card reveal reveal-delay-2">
+      <span class="stat-number"><span class="counter" data-target="7" data-suffix=" generations">0</span></span>
+      <span class="stat-label">Artisan Lineage</span>
+      <p class="stat-desc">Craft passed father to son since 1887</p>
+      <div class="stat-divider"></div>
+    </div>
+    <div class="stat-card reveal reveal-delay-3">
+      <span class="stat-number"><span class="counter" data-target="100" data-suffix="%">0</span></span>
+      <span class="stat-label">Natural Ingredients</span>
+      <p class="stat-desc">Zero synthetics. Zero compromise. Ever.</p>
+      <div class="stat-divider"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RITUAL SECTION ── -->
+<section id="ritual">
+  <div class="ritual-grid">
+    <div class="ritual-visual reveal">
+      <div class="ritual-arch">
+        <div class="ritual-icon">🪔</div>
+      </div>
+    </div>
+    <div class="ritual-text reveal reveal-delay-2">
+      <h3>Where <em>Ancient Tradition</em><br>Meets Sacred Practice</h3>
+      <p>Every product in our collection is born from centuries of Vedic wisdom — sourced from the finest aromatic woods, resins, and sacred botanicals found across the Indian subcontinent.</p>
+      <p>We work with artisan families in Mysuru, Varanasi, and Rishikesh who have dedicated generations to the sacred craft of creating divine fragrances.</p>
+      <ul class="ritual-features">
+        <li>100% Natural — No Synthetic Chemicals</li>
+        <li>Sourced from Sacred Forest Reserves</li>
+        <li>Handrolled by Master Craftspeople</li>
+        <li>Blessed Before Each Dispatch</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── LOTUS DIVIDER ── -->
+<!-- ── SACRED PROCESS SECTION ── -->
+<section id="process">
+  <div class="process-header">
+    <span class="section-eyebrow reveal">✦ Our Sacred Journey ✦</span>
+    <h2 class="section-title reveal">From <em>Forest</em> to Your Altar</h2>
+    <p class="section-sub reveal">Every offering travels a sacred path — touched only by devoted hands, blessed only with pure intention.</p>
+  </div>
+  <div class="process-timeline">
+    <div class="process-step reveal">
+      <div class="step-circle" data-num="1">🌿</div>
+      <h3 class="step-title"><em>Wild</em> Harvest</h3>
+      <p class="step-desc">Raw materials are gathered by hand from forest reserves — sandalwood heartwood, wild-harvested guggul resin, and sacred tulsi — never from industrial farms.</p>
+      <span class="step-keyword">Mysuru · Coorg · Rishikesh</span>
+    </div>
+    <div class="process-step reveal reveal-delay-1">
+      <div class="step-circle" data-num="2">🪵</div>
+      <h3 class="step-title">Master <em>Craft</em></h3>
+      <p class="step-desc">Artisans blend, press, and handroll each piece with techniques unchanged since the age of the Vedas. Every batch carries a master's fingerprint.</p>
+      <span class="step-keyword">7th Generation Craft</span>
+    </div>
+    <div class="process-step reveal reveal-delay-2">
+      <div class="step-circle" data-num="3">🙏</div>
+      <h3 class="step-title"><em>Sacred</em> Consecration</h3>
+      <p class="step-desc">Products rest for 48 hours in our prayer chamber during active Vedic mantra chanting — infusing each piece with divine vibration before it ever meets your altar.</p>
+      <span class="step-keyword">Vedic Rituals · 108 Chants</span>
+    </div>
+    <div class="process-step reveal reveal-delay-3">
+      <div class="step-circle" data-num="4">🕯️</div>
+      <h3 class="step-title">Delivered <em>Blessed</em></h3>
+      <p class="step-desc">Wrapped in recycled parchment with a handwritten prayer card, each offering arrives at your doorstep as a complete sacred experience — ready for your altar.</p>
+      <span class="step-keyword">Eco-Packed · Hand-Sealed</span>
+    </div>
+  </div>
+</section>
+
+<div class="lotus-divider" style="padding: 2rem 4rem; background: var(--umber);">
+  <svg class="lotus-svg" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M50 70 C30 50, 10 45, 10 25 C10 10, 25 5, 35 15 C40 20, 45 28, 50 35 C55 28, 60 20, 65 15 C75 5, 90 10, 90 25 C90 45, 70 50, 50 70Z" fill="none" stroke="#C9A84C" stroke-width="1.5" opacity="0.6"/>
+    <path d="M50 70 C35 52, 22 48, 20 32 C18 18, 30 12, 38 20 C43 25, 47 32, 50 38" fill="none" stroke="#C9A84C" stroke-width="1" opacity="0.4"/>
+    <path d="M50 70 C65 52, 78 48, 80 32 C82 18, 70 12, 62 20 C57 25, 53 32, 50 38" fill="none" stroke="#C9A84C" stroke-width="1" opacity="0.4"/>
+    <circle cx="50" cy="72" r="3" fill="#B85C1A" opacity="0.7"/>
+    <line x1="20" y1="75" x2="44" y2="75" stroke="#C9A84C" stroke-width="0.8" opacity="0.4"/>
+    <line x1="56" y1="75" x2="80" y2="75" stroke="#C9A84C" stroke-width="0.8" opacity="0.4"/>
+  </svg>
+</div>
+
+<!-- ── PRODUCTS ── -->
+<section id="products">
+  <div class="section-header reveal">
+    <span class="section-eyebrow">✦ The Sacred Collection ✦</span>
+    <h2 class="section-title">Divine <em>Offerings</em></h2>
+    <p class="section-sub">Each product is a prayer in itself — a bridge between the earthly and the divine.</p>
+  </div>
+
+  <div class="category-nav reveal">
+    <button class="cat-btn active" onclick="filterProducts('all', this)">All Offerings</button>
+    <button class="cat-btn" onclick="filterProducts('incense', this)">Incense Sticks</button>
+    <button class="cat-btn" onclick="filterProducts('dhoop', this)">Dhoop</button>
+    <button class="cat-btn" onclick="filterProducts('pooja', this)">Pooja Essentials</button>
+    <button class="cat-btn" onclick="filterProducts('oil', this)">Sacred Oils</button>
+    <button class="cat-btn" onclick="filterProducts('gift', this)">Gift Sets</button>
+  </div>
+
+  <div class="product-grid" id="product-grid"></div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section id="testimonials">
+  <div class="testimonials-header">
+    <span class="section-eyebrow reveal">✦ Devotee Voices ✦</span>
+    <h2 class="section-title reveal">Sacred <em>Experiences</em></h2>
+    <p class="section-sub reveal">Words from those who have welcomed Divya Aroha into their homes and hearts.</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"The moment the Chandanam Dhoop lit, my entire puja room transformed. The fragrance is unlike anything store-bought — it is pure, deep, and truly sacred. I could feel the energy shift immediately. This is now the only brand I will ever use for my daily prayers."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">🙏</div>
+        <div>
+          <span class="author-name">Meenakshi Iyer</span>
+          <span class="author-loc">Chennai, Tamil Nadu · Daily devotee since 2024</span>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-1">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"I have been performing Satyanarayan Puja for twenty years and have tried dozens of brands. Divya Aroha's Panchamrit Dhoop carries a fullness that I have only experienced in the temples of Varanasi. The prayer card that came with my order moved me to tears."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">✨</div>
+        <div>
+          <span class="author-name">Rajeshwar Sharma</span>
+          <span class="author-loc">Varanasi, Uttar Pradesh · Temple trustee</span>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-2">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Ordered the Navratri Gift Hamper for my mother and she called me in tears — she said it reminded her of the temple her grandmother used to take her to as a child. This is not just a product. It is a memory, a feeling, an ancestral bridge. Truly extraordinary."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">🌸</div>
+        <div>
+          <span class="author-name">Priya Nambiar</span>
+          <span class="author-loc">Bengaluru, Karnataka · Gift buyer</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SACRED WORDS ── -->
+<div class="sacred-words-strip">
+  <div class="sacred-words-inner reveal">
+    <span class="sacred-word" data-delay="0.0">Purity</span><span class="sacred-word-sep">✦</span><span class="sacred-word" data-delay="0.1">Devotion</span><span class="sacred-word-sep">✦</span><span class="sacred-word" data-delay="0.2">Grace</span><span class="sacred-word-sep">✦</span><span class="sacred-word" data-delay="0.4">Blessings</span><span class="sacred-word-sep">✦</span><span class="sacred-word" data-delay="0.5">Sacred</span><span class="sacred-word-sep">✦</span><span class="sacred-word" data-delay="0.6">Divine</span><span class="sacred-word-sep">✦</span><span class="sacred-word" data-delay="0.7">Eternal</span><span class="sacred-word-sep">✦</span><span class="sacred-word" data-delay="0.8">Worship</span><span class="sacred-word-sep">✦</span><span class="sacred-word" data-delay="1.0">Offering</span><span class="sacred-word-sep">✦</span><span class="sacred-word" data-delay="1.1">Peace</span><span class="sacred-word-sep">✦</span><span class="sacred-word" data-delay="1.2">Wisdom</span><span class="sacred-word-sep">✦</span><span class="sacred-word" data-delay="1.3">Light</span><span class="sacred-word-sep">✦</span><span class="sacred-word" data-delay="1.4">Fragrance</span><span class="sacred-word-sep">✦</span><span class="sacred-word" data-delay="1.6">Ceremony</span><span class="sacred-word-sep">✦</span><span class="sacred-word" data-delay="1.7">Silence</span>
+  </div>
+</div>
+
+<!-- ── ABOUT SECTION ── -->
+<section id="about">
+  <div class="about-bg-mandala"></div>
+  <div class="section-header reveal reveal-delay-1">
+    <span class="section-eyebrow">✦ Our Sacred Story ✦</span>
+    <h2 class="section-title">Born from <em>Ancient Wisdom</em></h2>
+    <p class="section-sub">Seven generations of master artisans, one unbroken devotion to purity.</p>
+  </div>
+
+  <div class="about-grid">
+    <!-- Left: Story -->
+    <div class="about-story reveal reveal-delay-2">
+      <div class="about-arch">
+        <div class="about-arch-inner">
+          <span style="font-size:5rem;">🪔</span>
+        </div>
+        <div class="about-arch-glow"></div>
+      </div>
+    </div>
+
+    <!-- Right: Content -->
+    <div class="about-content reveal reveal-delay-3">
+      <span class="about-tag">✦ Est. 2024 · Mysuru, Karnataka</span>
+      <h3 class="about-heading">
+        Where Sacred Craft<br><em>Meets Modern Devotion</em>
+      </h3>
+      <p class="about-para">
+        Divya Aroha was born in the sandalwood groves of Mysuru, where our ancestors first learned to transform nature's finest resins into offerings worthy of the divine. For seven generations, our family has preserved the ancient Vedic art of crafting incense — using no synthetic binders, no charcoal, only hand-selected botanicals aged to perfection.
+      </p>
+      <p class="about-para">
+        Every product we create undergoes a 21-day curing ritual, blessed during auspicious muhurtas. We source directly from tribal forest communities in Karnataka, Assam, and Rajasthan — ensuring purity of ingredient and fairness of trade.
+      </p>
+
+      <div class="about-values">
+        <div class="about-value">
+          <span class="about-value-icon">🌿</span>
+          <div>
+            <span class="about-value-title">Forest-Sourced</span>
+            <span class="about-value-desc">Direct from tribal communities across India</span>
+          </div>
+        </div>
+        <div class="about-value">
+          <span class="about-value-icon">🙏</span>
+          <div>
+            <span class="about-value-title">Vedic Blessed</span>
+            <span class="about-value-desc">Each batch cured under sacred muhurta</span>
+          </div>
+        </div>
+        <div class="about-value">
+          <span class="about-value-icon">♻️</span>
+          <div>
+            <span class="about-value-title">Zero Synthetic</span>
+            <span class="about-value-desc">No charcoal, no chemicals, ever</span>
+          </div>
+        </div>
+        <div class="about-value">
+          <span class="about-value-icon">📿</span>
+          <div>
+            <span class="about-value-title">7 Generations</span>
+            <span class="about-value-desc">Unbroken lineage of sacred craft</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Founder quote -->
+  <div class="about-quote-wrap reveal reveal-delay-4">
+    <div class="about-quote">
+      <p class="about-quote-text">"We do not merely make incense. We preserve a conversation between the mortal and the divine — one fragrant thread at a time."</p>
+      <span class="about-quote-attr">— Arjun Rao, Master Artisan · 7th Generation</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT SECTION ── -->
+<section id="contact">
+  <div class="section-header reveal reveal-delay-1">
+    <span class="section-eyebrow">✦ Sacred Correspondence ✦</span>
+    <h2 class="section-title">Reach <em>Our Sanctuary</em></h2>
+    <p class="section-sub">We respond to every message with the same care we bring to our craft.</p>
+  </div>
+
+  <div class="contact-grid">
+
+    <!-- Left: Info -->
+    <div class="contact-info reveal reveal-delay-2">
+      <div class="contact-info-card">
+        <span class="contact-info-icon">📍</span>
+        <div>
+          <span class="contact-info-label">Our Atelier</span>
+          <span class="contact-info-val">14, Sandalwood Lane, Mysuru<br>Karnataka — 570 001, India</span>
+        </div>
+      </div>
+      <div class="contact-info-card">
+        <span class="contact-info-icon">📞</span>
+        <div>
+          <span class="contact-info-label">Sacred Line</span>
+          <span class="contact-info-val">+91 9x7x5 x3x1x</span>
+        </div>
+      </div>
+      <div class="contact-info-card">
+        <span class="contact-info-icon">✉️</span>
+        <div>
+          <span class="contact-info-label">Email Sanctuary</span>
+          <span class="contact-info-val">offerings@divyaaroha.in</span>
+        </div>
+      </div>
+      <div class="contact-info-card">
+        <span class="contact-info-icon">🕐</span>
+        <div>
+          <span class="contact-info-label">Darshan Hours</span>
+          <span class="contact-info-val">Mon – Sat · 9:00 AM to 6:00 PM IST</span>
+        </div>
+      </div>
+
+      <!-- Social -->
+      <div class="contact-socials">
+        <span class="contact-social-label">Follow the Sacred Path</span>
+        <div class="contact-social-row">
+          <a href="#" class="contact-social-btn">Instagram</a>
+          <a href="#" class="contact-social-btn">Facebook</a>
+          <a href="#" class="contact-social-btn">YouTube</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Form -->
+    <div class="contact-form-wrap reveal reveal-delay-3">
+      <form class="contact-form" onsubmit="submitContact(event)">
+        <div class="cf-row">
+          <div class="cf-group">
+            <label class="cf-label">Your Name</label>
+            <input type="text" class="cf-input" placeholder="Arjun Sharma" required>
+          </div>
+          <div class="cf-group">
+            <label class="cf-label">Email Address</label>
+            <input type="email" class="cf-input" placeholder="you@email.com" required>
+          </div>
+        </div>
+        <div class="cf-group">
+          <label class="cf-label">Subject</label>
+          <select class="cf-input cf-select">
+            <option value="">Select a purpose…</option>
+            <option>Order Enquiry</option>
+            <option>Bulk / Wholesale</option>
+            <option>Temple Partnership</option>
+            <option>Gift Customisation</option>
+            <option>Sacred Ritual Guidance</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="cf-group">
+          <label class="cf-label">Your Message</label>
+          <textarea class="cf-input cf-textarea" placeholder="Share your sacred intention…" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="cf-submit">
+          <span>Send Sacred Message</span>
+          <span class="cf-submit-icon">✦</span>
+        </button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="logo">Divya Aroha</span>
+      <span class="tagline">Sacred Offerings · Est. 2024</span>
+      <p>Ancient fragrances, handcrafted with devotion. Every product is a bridge between the earthly and the divine.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Collections</h4>
+      <ul>
+        <li><a href="#">Incense Sticks</a></li>
+        <li><a href="#">Dhoop Cones</a></li>
+        <li><a href="#">Sacred Oils</a></li>
+        <li><a href="#">Pooja Kits</a></li>
+        <li><a href="#">Gift Sets</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Ingredients</a></li>
+        <li><a href="#">Sustainability</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Shipping Policy</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="lotus-divider">
+    <svg class="lotus-svg" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 70 C30 50, 10 45, 10 25 C10 10, 25 5, 35 15 C40 20, 45 28, 50 35 C55 28, 60 20, 65 15 C75 5, 90 10, 90 25 C90 45, 70 50, 50 70Z" fill="none" stroke="#C9A84C" stroke-width="1.5" opacity="0.4"/>
+    </svg>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 Divya Aroha · All Rights Reserved · Crafted with Devotion in India 🇮🇳 · Payments Secured by Razorpay</p>
+  </div>
+</footer>
+
+<!-- ── PRODUCT MODAL ── -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal-box" id="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-visual" id="modal-visual"></div>
+    <div class="modal-info" id="modal-info"></div>
+  </div>
+</div>
+
+<!-- ── CART DRAWER ── -->
+<div class="cart-overlay" id="cart-overlay" onclick="closeCartIfOverlay(event)">
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <div>
+        <div class="cart-title">
+          Your Offerings
+          <span>Sacred Cart</span>
+        </div>
+      </div>
+      <button class="cart-close-btn" onclick="closeCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-subtotal">
+        <span class="label">Sacred Total</span>
+        <span class="amount" id="cart-total">₹0</span>
+      </div>
+      <p class="cart-note">Free shipping on orders above ₹499 · Taxes included</p>
+      <button class="btn-checkout" onclick="openPayment()">Proceed to Sacred Checkout</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── PAYMENT MODAL ── -->
+<div class="pay-overlay" id="pay-overlay">
+  <div class="pay-box">
+    <div class="pay-header">
+      <div class="pay-brand">
+        <span class="rzp-logo">Razorpay</span>
+        <span>Divya Aroha</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:1rem;">
+        <div class="pay-secure">🔒 Secure</div>
+        <button class="pay-close-btn" onclick="closePayment()">✕</button>
+      </div>
+    </div>
+    <div class="pay-merchant">
+      <div>
+        <div class="name">Divya Aroha</div>
+        <div class="sub">Sacred Offerings Store</div>
+      </div>
+      <div>
+        <div class="amount" id="pay-amount">₹0</div>
+        <div class="sub" style="text-align:right;">Total Amount</div>
+      </div>
+    </div>
+
+    <div class="pay-body" id="pay-body">
+      <div class="pay-method-tabs">
+        <div class="pay-tab active" onclick="switchTab(this,'upi')">UPI</div>
+        <div class="pay-tab" onclick="switchTab(this,'card')">Card</div>
+        <div class="pay-tab" onclick="switchTab(this,'netbanking')">Netbanking</div>
+        <div class="pay-tab" onclick="switchTab(this,'wallet')">Wallets</div>
+      </div>
+
+      <div id="tab-upi">
+        <div class="pay-upi-options">
+          <div class="upi-opt selected" onclick="selectUpi(this)">GPay</div>
+          <div class="upi-opt" onclick="selectUpi(this)">PhonePe</div>
+          <div class="upi-opt" onclick="selectUpi(this)">Paytm</div>
+          <div class="upi-opt" onclick="selectUpi(this)">BHIM</div>
+        </div>
+        <div class="pay-input-group">
+          <label class="pay-label">UPI ID</label>
+          <div class="pay-upi-row">
+            <input class="pay-input" placeholder="yourname@upi" type="text">
+          </div>
+        </div>
+        <button class="btn-pay" onclick="simulatePay()">Pay via UPI →</button>
+      </div>
+
+      <div id="tab-card" style="display:none;">
+        <div class="pay-input-group">
+          <label class="pay-label">Card Number</label>
+          <input class="pay-input" placeholder="1234  5678  9012  3456" type="text" maxlength="19">
+        </div>
+        <div class="pay-row">
+          <div class="pay-input-group">
+            <label class="pay-label">Expiry</label>
+            <input class="pay-input" placeholder="MM / YY" type="text" maxlength="7">
+          </div>
+          <div class="pay-input-group">
+            <label class="pay-label">CVV</label>
+            <input class="pay-input" placeholder="•••" type="password" maxlength="3">
+          </div>
+        </div>
+        <div class="pay-input-group">
+          <label class="pay-label">Name on Card</label>
+          <input class="pay-input" placeholder="Full Name" type="text">
+        </div>
+        <button class="btn-pay" onclick="simulatePay()">Pay Securely →</button>
+      </div>
+
+      <div id="tab-netbanking" style="display:none;">
+        <div class="pay-input-group">
+          <label class="pay-label">Select Your Bank</label>
+          <select class="pay-input" style="appearance:auto;cursor:pointer;">
+            <option>State Bank of India</option>
+            <option>HDFC Bank</option>
+            <option>ICICI Bank</option>
+            <option>Axis Bank</option>
+            <option>Kotak Mahindra Bank</option>
+            <option>Other Banks</option>
+          </select>
+        </div>
+        <button class="btn-pay" onclick="simulatePay()">Continue to Bank →</button>
+      </div>
+
+      <div id="tab-wallet" style="display:none;">
+        <div class="pay-upi-options" style="flex-direction:column;gap:0.5rem;">
+          <div class="upi-opt" style="width:100%;text-align:left;" onclick="selectUpi(this)">📱 Paytm Wallet</div>
+          <div class="upi-opt" style="width:100%;text-align:left;" onclick="selectUpi(this)">💳 Amazon Pay</div>
+          <div class="upi-opt" style="width:100%;text-align:left;" onclick="selectUpi(this)">🔵 Mobikwik</div>
+        </div>
+        <button class="btn-pay" onclick="simulatePay()" style="margin-top:0.5rem;">Pay via Wallet →</button>
+      </div>
+    </div>
+
+    <div class="success-box" id="success-box">
+      <div class="success-icon">✅</div>
+      <h3>Payment Successful!</h3>
+      <p>Your sacred offerings are on their way. Thank you for choosing Divya Aroha.</p>
+      <div class="success-id" id="success-id">TXN #DA2024001</div>
+      <br><br>
+      <button class="btn-pay" onclick="closePayment()" style="max-width:200px;margin:0 auto;">Continue Shopping</button>
+    </div>
+
+    <div class="pay-footer">
+      <p>🔒 Secured by Razorpay · 256-bit SSL encryption · All major cards & UPI accepted</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOAST ── -->
+<div class="toast" id="toast">
+  <div class="toast-dot"></div>
+  <span id="toast-msg"></span>
+</div>
+
+<script>
+// ── PRODUCT DATA ──
+const products = [
+  {
+    id: 1, name: 'Mysore Chandan Agarbatti', cat: 'incense',
+    catLabel: 'Incense Sticks', image: 'images/mysore_chandan.png', icon: '🌿',
+    desc: 'Hand-rolled sandalwood incense from the groves of Mysuru, infused with aged chandan resin.',
+    longDesc: 'Sourced directly from century-old sandalwood estates in Mysuru, these incense sticks carry the deep, woody warmth of pure chandan resin. Each stick burns for 45–60 minutes, releasing a meditative fragrance perfect for morning and evening prayers.',
+    price: 249, oldPrice: 349, rating: 4.8, reviews: 128,
+    badge: 'bestseller', badgeClass: 'new',
+    features: ['Burns 45–60 Minutes', '20 Sticks Per Box', 'Zero Charcoal · Natural Bamboo Core', 'Handrolled in Mysuru']
+  },
+  {
+    id: 2, name: 'Guggul Dhoop Cones', cat: 'dhoop',
+    catLabel: 'Dhoop', image: 'images/guggul.png', icon: '🔥',
+    desc: 'Sacred guggul resin dhoop, known to purify spaces and invite divine energies.',
+    longDesc: 'Made from pure Commiphora wightii resin — the sacred guggul referenced in Vedic scriptures. These dhoop cones burn with a thick, purifying smoke that cleanses the atmosphere and prepares the mind for deep meditation and worship.',
+    price: 199, oldPrice: null, rating: 4.9, reviews: 89,
+    badge: 'bestseller', badgeClass: 'new',
+    features: ['12 Cones Per Box', 'Burns 20 Minutes Each', 'Pure Resin · No Charcoal', 'Varanasi Tradition']
+  },
+  {
+    id: 3, name: 'Rose & Jasmine Pooja Set', cat: 'pooja',
+    catLabel: 'Pooja Essentials', image: 'images/rose_jasmine_set.png', icon: '🌸',
+    desc: 'A complete floral pooja set — agarbatti, dhoop, and camphor in a gift-ready box.',
+    longDesc: 'A complete devotional set combining rose-infused incense sticks, jasmine dhoop cones, and pure camphor tablets. Beautifully packaged in a hand-embossed gold box, making it the ideal offering for home temples and gifting.',
+    price: 599, oldPrice: 799, rating: 4.7, reviews: 214,
+    badge: 'sale', badgeClass: 'sale',
+    features: ['30 Incense + 12 Dhoop + Camphor', 'Gift-Ready Hand-Embossed Box', 'Pure Floral Extracts', 'Suitable for All Deities']
+  },
+  {
+    id: 4, name: 'Oud & Amber Sacred Oil', cat: 'oil',
+    catLabel: 'Sacred Oils', image: 'images/amber_oud.png', icon: '✨',
+    desc: 'A rare blend of Assamese oud and Rajasthani amber, aged for 12 months.',
+    longDesc: 'This extraordinary oil marries the deep, animalic warmth of genuine Assam agarwood (oud) with the golden sweetness of aged Rajasthani amber resin. A few drops on the prayer lamp or diffuser transforms any space into a sacred sanctum.',
+    price: 1299, oldPrice: 1599, rating: 5.0, reviews: 47,
+    badge: 'limited', badgeClass: 'new',
+    features: ['10ml Artisan Glass Bottle', 'Aged 12 Months', 'Genuine Assam Oud', 'COA Certified Pure']
+  },
+  {
+    id: 5, name: 'Camphor Tablets Pooja Box', cat: 'pooja',
+    catLabel: 'Pooja Essentials', image: 'images/camphor.png', icon: '💎',
+    desc: 'Pure edible-grade camphor tablets from Tamil Nadu, for aarti and purification.',
+    longDesc: 'Premium Bhimseni camphor tablets sourced from Tamil Nadu — the purest form of camphor available, with no additives or petroleum derivatives. Burns clean with a bright, blue flame ideal for aarti and space purification rituals.',
+    price: 149, oldPrice: null, rating: 4.6, reviews: 302,
+    badge: null, badgeClass: null,
+    features: ['50g Pure Bhimseni Camphor', 'Zero Additives', 'Bright Clean Flame', 'Sealed Freshness Pouch']
+  },
+  {
+    id: 6, name: 'Chandan & Haldi Sambrani', cat: 'dhoop',
+    catLabel: 'Dhoop', image: 'images/chandan_sambrani.png', icon: '🪷',
+    desc: 'Traditional sambrani cups infused with haldi and sandalwood, for home blessing rituals.',
+    longDesc: "These sambrani cups, rooted in South Indian temple traditions, combine turmeric, sandalwood, and benzoin resin into a slow-burning fumigation ritual. The fragrant smoke is believed to ward off negative energy and invite Lakshmi's blessings.",
+    price: 299, oldPrice: 399, rating: 4.8, reviews: 96,
+    badge: 'new', badgeClass: 'new',
+    features: ['10 Cups Per Box', 'Burns 30 Minutes Each', 'Tamil Nadu Tradition', 'Haldi · Chandan · Benzoin']
+  },
+  {
+    id: 7, name: 'Ashtagandha Incense Set', cat: 'incense',
+    catLabel: 'Incense Sticks', image: 'images/astagandha.png', icon: '🌺',
+    desc: 'Eight sacred fragrances in one box — the Ashtagandha blend for divine offerings.',
+    longDesc: 'The Ashtagandha is a revered blend of eight sacred ingredients used in ancient temple offerings. This set brings that tradition home, with 8 varieties of incense — each stick crafted from one of the eight auspicious aromatics: chandan, oud, champa, rose, jasmine, kewra, mogra, and vetiver.',
+    price: 449, oldPrice: 549, rating: 4.9, reviews: 73,
+    badge: null, badgeClass: null,
+    features: ['8 Varieties · 8 Sticks Each', 'Vedic Ashtagandha Blend', 'Premium Gift Packaging', 'Ideal for Special Poojas']
+  },
+  {
+    id: 8, name: 'Divya Aroha Luxury Gift Box', cat: 'gift',
+    catLabel: 'Gift Sets', image: 'images/luxury_set.png', icon: '🎁',
+    desc: 'Our signature gift box — a curation of our finest products, presented in temple gold packaging.',
+    longDesc: 'The ultimate expression of devotional luxury. Presented in a hand-embossed gold box with silk ribbon and wax seal, this curated gift set includes our bestselling oud oil, chandan agarbatti, guggul dhoop, and sambrani cups — each wrapped in handmade lokta paper.',
+    price: 1999, oldPrice: 2499, rating: 4.9, reviews: 38,
+    badge: 'bestseller', badgeClass: 'new',
+    features: ['Full-Size Products · 4 Items', 'Hand-Embossed Gold Box', 'Wax Seal · Silk Ribbon', 'Complimentary Gift Note']
+  }
+];
+let cart = [];
+let activeModal = null;
+
+// ── RENDER PRODUCTS ──
+function renderProducts(filter = 'all') {
+  const grid = document.getElementById('product-grid');
+  const filtered = filter === 'all' ? products : products.filter(p => p.cat === filter);
+  grid.innerHTML = filtered.map((p, i) => `
+    <div class="product-card reveal reveal-delay-${(i%4)+1}" onclick="openModal(${p.id})" data-cat="${p.cat}">
+      <div class="card-arch-frame">
+        ${p.image
+          ? `<img src="${p.image}" alt="${p.name}" class="card-img" loading="lazy">
+             <div class="card-arch-overlay"></div>`
+          : `<div class="card-arch-inner">${p.icon}</div>`
+        }
+        ${p.badge ? `<span class="badge ${p.badgeClass}">${p.badge}</span>` : ''}
+      </div>
+      <div class="card-body">
+        <span class="card-category">${p.catLabel}</span>
+        <div class="card-name">${p.name}</div>
+        <div class="card-rating">★★★★${p.rating >= 5 ? '★' : '☆'} <span>${p.rating} (${p.reviews})</span></div>
+        <div class="card-desc">${p.desc}</div>
+        <div class="card-footer">
+          <div>
+            <span class="card-price">₹${p.price}</span>
+            ${p.oldPrice ? `<span class="card-price-old">₹${p.oldPrice}</span>` : ''}
+          </div>
+          <button class="card-add" onclick="event.stopPropagation(); addToCart(${p.id})" title="Add to Cart">+</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  document.querySelectorAll('.reveal').forEach(el => {
+    setTimeout(() => observer.observe(el), 10);
+  });
+  // re-observe new cards
+  observeReveal();
+}
+
+// ── FILTER ──
+function filterProducts(cat, btn) {
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderProducts(cat);
+}
+
+// ── MODAL ──
+function openModal(id) {
+  const p = products.find(x => x.id === id);
+  if (!p) return;
+  activeModal = p;
+
+  // ── Visual: use real image if available, fallback to icon ──
+  document.getElementById('modal-visual').innerHTML = p.image
+    ? `<img src="${p.image}" alt="${p.name}" style="
+        width:100%; height:100%; min-height:380px;
+        object-fit:cover; display:block;
+        filter:brightness(0.88) saturate(1.1);
+        transition:filter 0.5s;
+      ">`
+    : `<div style="position:relative;z-index:1;font-size:8rem;line-height:1;">${p.icon}</div>`;
+
+  document.getElementById('modal-info').innerHTML = `
+    <span class="modal-cat">${p.catLabel}</span>
+    <h2 class="modal-title">${p.name}</h2>
+    <div class="modal-rating">
+      <span class="stars">★★★★${p.rating >= 5 ? '★' : '☆'}</span>
+      <span>${p.rating} · ${p.reviews} Reviews</span>
+    </div>
+    <p class="modal-desc">${p.longDesc}</p>
+    <ul class="modal-features">
+      ${p.features.map(f => `<li>${f}</li>`).join('')}
+    </ul>
+    <div class="modal-price-row">
+      <span class="modal-price">₹${p.price}</span>
+      ${p.oldPrice ? `<span class="modal-price-old">₹${p.oldPrice}</span>` : ''}
+    </div>
+    <div class="modal-qty">
+      <button class="qty-btn" onclick="changeQty(-1)">−</button>
+      <div class="qty-num" id="modal-qty">1</div>
+      <button class="qty-btn" onclick="changeQty(1)">+</button>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-buy" onclick="buyNow(${p.id})">Buy Now — ₹${p.price}</button>
+      <button class="btn-cart-add" onclick="addToCart(${p.id}); closeModal()">Add to Sacred Cart</button>
+    </div>
+  `;
+
+  // Slight brightness boost once modal is open
+  setTimeout(() => {
+    const img = document.querySelector('#modal-visual img');
+    if (img) img.style.filter = 'brightness(0.95) saturate(1.2)';
+  }, 100);
+
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e) {
+  if (e && e.target !== document.getElementById('modal-overlay')) return;
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function changeQty(delta) {
+  const el = document.getElementById('modal-qty');
+  let v = parseInt(el.textContent) + delta;
+  if (v < 1) v = 1; if (v > 20) v = 20;
+  el.textContent = v;
+}
+// ── CART ──
+function addToCart(id) {
+  const p = products.find(x => x.id === id);
+  const existing = cart.find(x => x.id === id);
+  if (existing) { existing.qty++; }
+  else { cart.push({ ...p, qty: 1 }); }
+  updateCartUI();
+  showToast(`${p.icon} ${p.name} added to cart`);
+}
+function removeFromCart(id) {
+  cart = cart.filter(x => x.id !== id);
+  updateCartUI();
+  renderCartItems();
+}
+function changeCartQty(id, delta) {
+  const item = cart.find(x => x.id === id);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) { removeFromCart(id); return; }
+  updateCartUI();
+  renderCartItems();
+}
+function updateCartUI() {
+  const total = cart.reduce((s, x) => s + x.price * x.qty, 0);
+  document.getElementById('cart-count').textContent = cart.reduce((s, x) => s + x.qty, 0);
+  document.getElementById('cart-total').textContent = `₹${total.toLocaleString('en-IN')}`;
+  document.getElementById('pay-amount').textContent = `₹${total.toLocaleString('en-IN')}`;
+  renderCartItems();
+}
+function renderCartItems() {
+  const el = document.getElementById('cart-items');
+  if (cart.length === 0) {
+    el.innerHTML = `<div class="cart-empty">Your sacred cart awaits its first offering...</div>`;
+    return;
+  }
+  el.innerHTML = cart.map(item => `
+    <div class="cart-item">
+      <div class="cart-item-icon">${item.icon}</div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-cat">${item.catLabel}</div>
+        <div class="cart-item-controls">
+          <div class="ci-qty">
+            <button class="ci-btn" onclick="changeCartQty(${item.id},-1)">−</button>
+            <div class="ci-count">${item.qty}</div>
+            <button class="ci-btn" onclick="changeCartQty(${item.id},1)">+</button>
+          </div>
+          <button class="remove-btn" onclick="removeFromCart(${item.id})">✕ Remove</button>
+        </div>
+      </div>
+      <div class="cart-item-price">₹${(item.price * item.qty).toLocaleString('en-IN')}</div>
+    </div>
+  `).join('');
+}
+function openCart() {
+  document.getElementById('cart-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  renderCartItems();
+}
+function closeCart() {
+  document.getElementById('cart-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeCartIfOverlay(e) {
+  if (e.target === document.getElementById('cart-overlay')) closeCart();
+}
+function buyNow(id) {
+  addToCart(id);
+  closeModal();
+  openPayment();
+}
+
+// ── PAYMENT ──
+function openPayment() {
+  closeCart();
+  if (cart.length === 0) { showToast('Add items to cart first'); return; }
+  document.getElementById('pay-overlay').classList.add('open');
+  document.getElementById('success-box').classList.remove('show');
+  document.getElementById('pay-body').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+function closePayment() {
+  document.getElementById('pay-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+  if (document.getElementById('success-box').classList.contains('show')) {
+    cart = [];
+    updateCartUI();
+  }
+}
+function switchTab(el, tab) {
+  document.querySelectorAll('.pay-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  ['upi','card','netbanking','wallet'].forEach(t => {
+    const el2 = document.getElementById('tab-'+t);
+    if (el2) el2.style.display = t === tab ? 'block' : 'none';
+  });
+}
+function selectUpi(el) {
+  el.closest('.pay-upi-options').querySelectorAll('.upi-opt').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+}
+function simulatePay() {
+  const btn = event.target;
+  const orig = btn.textContent;
+  btn.textContent = 'Processing...';
+  btn.disabled = true;
+  setTimeout(() => {
+    document.getElementById('pay-body').classList.add('hidden');
+    const s = document.getElementById('success-box');
+    s.classList.add('show');
+    const txn = 'DA' + Date.now().toString().slice(-8);
+    document.getElementById('success-id').textContent = 'TXN #' + txn;
+    btn.textContent = orig;
+    btn.disabled = false;
+  }, 2000);
+}
+
+// ── TOAST ──
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  document.getElementById('toast-msg').textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+// ── SCROLL EFFECTS ──
+function observeReveal() {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => io.observe(el));
+}
+
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ── INIT ──
+renderProducts();
+observeReveal();
+
+// ═══════════════════════════════════════════════════
+// PREMIUM ENHANCEMENTS — Divya Aroha
+// ═══════════════════════════════════════════════════
+
+// ── CUSTOM CURSOR ──
+(function() {
+  const cursor = document.getElementById('sacred-cursor');
+  const ring   = document.getElementById('sacred-cursor-ring');
+  if (!cursor || !ring) return;
+  let mx = -100, my = -100, rx = -100, ry = -100;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  function animCursor() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+    ring.style.left   = rx + 'px'; ring.style.top  = ry + 'px';
+    requestAnimationFrame(animCursor);
+  }
+  animCursor();
+  document.querySelectorAll('button, a, [role="button"], .product-card, .cat-btn, .nav-cart, .card-add, .modal-close, .cart-close-btn, .qty-btn, .ci-btn, .remove-btn, .pay-tab, .upi-opt, .footer-col a').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('expand'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('expand'));
+  });
+  // Hide cursor when off-window
+  document.addEventListener('mouseleave', () => { cursor.style.opacity = '0'; ring.style.opacity = '0'; });
+  document.addEventListener('mouseenter', () => { cursor.style.opacity = '1'; ring.style.opacity = '1'; });
+})();
+
+// ── HERO EMBER / SPARK CANVAS ──
+(function() {
+  const canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  const COLORS = [
+    [201, 168, 76],   // gold
+    [232, 213, 163],  // cream gold
+    [184, 92,  26],   // saffron
+    [255, 200, 100],  // bright gold
+  ];
+
+  function spawnParticle() {
+    const c = COLORS[Math.floor(Math.random() * COLORS.length)];
+    return {
+      x: W * (0.3 + Math.random() * 0.4),
+      y: H * (0.5 + Math.random() * 0.25),
+      vx: (Math.random() - 0.5) * 0.8,
+      vy: -(0.6 + Math.random() * 1.8),
+      life: 0,
+      maxLife: 80 + Math.random() * 120,
+      size: 1.2 + Math.random() * 2,
+      r: c[0], g: c[1], b: c[2],
+      wobble: Math.random() * Math.PI * 2,
+      wobbleSpeed: 0.03 + Math.random() * 0.05,
+    };
+  }
+
+  for (let i = 0; i < 35; i++) {
+    const p = spawnParticle();
+    p.life = Math.random() * p.maxLife;
+    particles.push(p);
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    if (Math.random() < 0.35) particles.push(spawnParticle());
+    if (particles.length > 60) particles.splice(0, 1);
+
+    particles.forEach((p, i) => {
+      p.life++;
+      if (p.life > p.maxLife) { particles.splice(i, 1); return; }
+      p.wobble += p.wobbleSpeed;
+      p.x += p.vx + Math.sin(p.wobble) * 0.4;
+      p.y += p.vy;
+      p.vy *= 0.995; // slight decel
+
+      const progress = p.life / p.maxLife;
+      const alpha = progress < 0.15
+        ? progress / 0.15 * 0.7
+        : progress > 0.7
+          ? (1 - progress) / 0.3 * 0.7
+          : 0.7;
+      const sz = p.size * (1 - progress * 0.5);
+
+      // Glow
+      const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, sz * 3.5);
+      grad.addColorStop(0,   `rgba(${p.r},${p.g},${p.b},${alpha})`);
+      grad.addColorStop(0.4, `rgba(${p.r},${p.g},${p.b},${alpha * 0.4})`);
+      grad.addColorStop(1,   `rgba(${p.r},${p.g},${p.b},0)`);
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, sz * 3.5, 0, Math.PI * 2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      // Core dot
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, sz * 0.7, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,240,180,${alpha})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ── FLOATING ROSE PETALS ──
+(function() {
+  const container = document.getElementById('hero-petals');
+  if (!container) return;
+  const symbols = ['✿', '❀', '✾', '❁', '🌸', '✤'];
+  let count = 0;
+  function spawnPetal() {
+    if (count >= 18) return;
+    const el = document.createElement('div');
+    el.className = 'petal';
+    el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    el.style.left = (10 + Math.random() * 80) + '%';
+    el.style.top  = '-20px';
+    const dur = 14 + Math.random() * 12;
+    el.style.animation = `petal-drift ${dur}s ${Math.random() * 8}s linear infinite`;
+    el.style.fontSize  = (0.5 + Math.random() * 0.8) + 'rem';
+    el.style.opacity   = '0';
+    container.appendChild(el);
+    count++;
+  }
+  for (let i = 0; i < 14; i++) spawnPetal();
+})();
+
+// ── TRUST STRIP: DUPLICATE FOR SEAMLESS LOOP ──
+(function() {
+  const wrap = document.getElementById('trust-inner-wrap');
+  if (!wrap) return;
+  const clone = wrap.innerHTML;
+  wrap.innerHTML = clone + clone; // double content for seamless loop
+})();
+
+// ── CURSOR: re-attach on new DOM additions ──
+function reattachCursorHovers() {
+  const ring = document.getElementById('sacred-cursor-ring');
+  if (!ring) return;
+  document.querySelectorAll('button, a, [role="button"], .product-card, .cat-btn').forEach(el => {
+    if (!el._cursorAttached) {
+      el._cursorAttached = true;
+      el.addEventListener('mouseenter', () => ring.classList.add('expand'));
+      el.addEventListener('mouseleave', () => ring.classList.remove('expand'));
+    }
+  });
+}
+document.addEventListener('DOMContentLoaded', reattachCursorHovers);
+// Hook into renderProducts
+const _origRender = renderProducts;
+window.renderProducts = function(f) {
+  _origRender(f);
+  setTimeout(reattachCursorHovers, 50);
+};
+
+
+// ═══════════════════════════════════════════════
+// CONTENT ANIMATIONS
+// ═══════════════════════════════════════════════
+
+// ── TYPEWRITER PHILOSOPHY QUOTE ──
+(function() {
+  const quotes = [
+    "Fragrance is the language of the divine — it rises like prayer, lingers like grace, and dissolves into eternity.",
+    "Where sacred smoke ascends, the veil between worlds grows thin — and the divine leans in to listen.",
+    "The universe hears not words, but the sincerity of what burns within us — let your offering be pure.",
+    "ॐ — In the beginning was the sound, and from that sound arose all fragrance, all light, all creation."
+  ];
+  let qi = 0, ci = 0, deleting = false, pauseCount = 0;
+  const el = document.getElementById('typed-text');
+  if (!el) return;
+  function type() {
+    const q = quotes[qi];
+    if (!deleting) {
+      el.textContent = q.slice(0, ci++);
+      if (ci > q.length) {
+        deleting = true; pauseCount = 0;
+        setTimeout(type, 2800); return;
+      }
+      setTimeout(type, 42);
+    } else {
+      if (pauseCount++ < 3) { setTimeout(type, 300); return; }
+      el.textContent = q.slice(0, ci--);
+      if (ci < 0) { deleting = false; ci = 0; qi = (qi + 1) % quotes.length; }
+      setTimeout(type, 22);
+    }
+  }
+  // Start when in view
+  const obs = new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) { type(); obs.disconnect(); }
+  }, { threshold: 0.3 });
+  const section = document.getElementById('philosophy');
+  if (section) obs.observe(section);
+})();
+
+// ── ANIMATED COUNTERS ──
+(function() {
+  function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.target);
+    const suffix = el.dataset.suffix || '';
+    const duration = 2000;
+    const start = performance.now();
+    function step(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = easeOut(progress);
+      const current = Math.round(eased * target);
+      el.textContent = current.toLocaleString('en-IN') + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+      else {
+        el.textContent = target.toLocaleString('en-IN') + suffix;
+        el.closest('.stat-card').classList.add('counted');
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.counter').forEach(animateCounter);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.4 });
+
+  const statsSection = document.getElementById('stats');
+  if (statsSection) obs.observe(statsSection);
+})();
+
+// ── SACRED WORDS: STAGGERED LIGHT-UP ANIMATION ──
+(function() {
+  const words = document.querySelectorAll('.sacred-word');
+  if (!words.length) return;
+  let litIndex = 0;
+  function lightUp() {
+    words.forEach(w => w.classList.remove('lit'));
+    const count = 3 + Math.floor(Math.random() * 4);
+    const indices = [];
+    while (indices.length < count) {
+      const i = Math.floor(Math.random() * words.length);
+      if (!indices.includes(i)) indices.push(i);
+    }
+    indices.forEach((i, j) => setTimeout(() => words[i].classList.add('lit'), j * 120));
+    setTimeout(lightUp, 1800);
+  }
+  const obs = new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) { lightUp(); }
+  }, { threshold: 0.2 });
+  const strip = document.querySelector('.sacred-words-strip');
+  if (strip) obs.observe(strip);
+})();
+
+// ── PROCESS STEP: CIRCLE PULSE ON SCROLL ──
+(function() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => {
+          e.target.querySelector('.step-circle').style.boxShadow =
+            '0 0 0 12px rgba(201,168,76,0.08), 0 0 50px rgba(201,168,76,0.15)';
+          setTimeout(() => {
+            e.target.querySelector('.step-circle').style.boxShadow = '';
+          }, 800);
+        }, i * 180);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.process-step').forEach(s => obs.observe(s));
+})();
+
+// ── PARALLAX: HERO MANDALA RESPONDS TO MOUSE ──
+(function() {
+  const mandala = document.querySelector('.hero-mandala');
+  const aura = document.querySelector('.hero-aura');
+  if (!mandala) return;
+  let tx = 0, ty = 0;
+  document.addEventListener('mousemove', e => {
+    const cx = window.innerWidth / 2, cy = window.innerHeight / 2;
+    tx = (e.clientX - cx) / cx * 8;
+    ty = (e.clientY - cy) / cy * 8;
+  });
+  function update() {
+    mandala.style.marginLeft = tx + 'px';
+    mandala.style.marginTop  = ty + 'px';
+    if (aura) { aura.style.marginLeft = tx * 1.5 + 'px'; aura.style.marginTop = ty * 1.5 + 'px'; }
+    requestAnimationFrame(update);
+  }
+  update();
+})();
+
+// ── TESTIMONIAL CARD: STAGGER ENTRANCE ──
+(function() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.testimonial-card').forEach((card, i) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(40px)';
+    card.style.transition = `opacity 0.8s ease ${i * 0.15}s, transform 0.8s cubic-bezier(0.16,1,0.3,1) ${i * 0.15}s, border-color 0.5s, box-shadow 0.5s`;
+    obs.observe(card);
+  });
+})();
+
+// ── PILLAR CARD: STAGGER ──
+(function() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.pillar').forEach((p, i) => {
+    p.style.opacity = '0';
+    p.style.transform = 'translateY(30px)';
+    p.style.transition = `opacity 0.9s ease ${i * 0.2}s, transform 0.9s cubic-bezier(0.16,1,0.3,1) ${i * 0.2}s, border-color 0.5s, box-shadow 0.5s`;
+    obs.observe(p);
+  });
+})();
+
+function submitContact(e) {
+  e.preventDefault();
+  showToast('✦ Message received — we will respond within one sacred day');
+  e.target.reset();
+}
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
